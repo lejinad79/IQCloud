@@ -21,6 +21,10 @@ class SetupApiaryController < ApplicationController
     apiary = Apiary.where(["owner_id = ?", current_beekeeper.id]).last
     current_beekeeper.current_apiary_id = apiary.id
     current_beekeeper.save!
+    setup = ApiaryParametersSetup.new
+    setup.apiary_id = current_beekeeper.current_apiary.id
+    setup.owner_id = current_beekeeper.id
+    setup.save!
   end
 
   private
@@ -30,10 +34,8 @@ class SetupApiaryController < ApplicationController
   end
 
   def finish_wizard_path
-    apiary = Apiary.where(["owner_id = ?", current_beekeeper.id]).last
-    #controller => 'apiaries', :action => 'edit', :id => apiary.id
-    apiaries_path(apiary.id)
-    edit_apiary_path(apiary.id)
+    setup = ApiaryParametersSetup.where(["owner_id = ?", current_beekeeper.id]).last
+    edit_apiary_parameters_setup_path(setup.id)
   end
 
 end

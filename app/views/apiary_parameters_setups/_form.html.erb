@@ -1,0 +1,22 @@
+<%= form_for(@apiary_parameters_setup) do |f| %>
+  <% if @apiary_parameters_setup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@apiary_parameters_setup.errors.count, "error") %> prohibited this apiary_parameters_setup from being saved:</h2>
+
+      <ul>
+      <% @apiary_parameters_setup.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

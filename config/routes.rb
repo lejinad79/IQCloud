@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :apiary_parameters_setups
+
   resources :apiary_setups
 
   resources :apiaries
