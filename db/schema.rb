@@ -11,10 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111091840) do
+ActiveRecord::Schema.define(version: 20141111104118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "apiaries", force: true do |t|
+    t.string   "name"
+    t.integer  "apiary_type_id"
+    t.integer  "apiary_forage_type_id"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "owner_id"
+  end
+
+  add_index "apiaries", ["apiary_forage_type_id"], name: "index_apiaries_on_apiary_forage_type_id", using: :btree
+  add_index "apiaries", ["apiary_type_id"], name: "index_apiaries_on_apiary_type_id", using: :btree
+  add_index "apiaries", ["owner_id"], name: "index_apiaries_on_owner_id", using: :btree
+
+  create_table "apiary_setups", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "apiary_id"
+    t.integer  "owner_id"
+  end
+
+  add_index "apiary_setups", ["apiary_id"], name: "index_apiary_setups_on_apiary_id", using: :btree
+  add_index "apiary_setups", ["owner_id"], name: "index_apiary_setups_on_owner_id", using: :btree
 
   create_table "beekeepers", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -31,6 +55,7 @@ ActiveRecord::Schema.define(version: 20141111091840) do
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
+    t.integer  "current_apiary_id"
   end
 
   add_index "beekeepers", ["email"], name: "index_beekeepers_on_email", unique: true, using: :btree

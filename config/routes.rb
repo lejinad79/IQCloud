@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :apiary_setups
+
+  resources :apiaries
+
   devise_for :beekeepers
   get 'dashboard/index'
 
@@ -7,7 +11,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'dashboard#index'
-
+  match ':controller(/:action(/:id))', :via => [:get, :post]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -43,3 +43,4 @@ end
 gem 'devise'
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+gem 'jquery-turbolinks'
