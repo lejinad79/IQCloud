@@ -260,7 +260,7 @@ end
 
 Rails.application.config.to_prepare do
   Devise::SessionsController.layout "login"
-  Devise::RegistrationsController.layout proc{ |controller| beekeeper_signed_in? ? "application" : "devise" }
+  Devise::RegistrationsController.layout proc{ |controller| beekeeper_signed_in? ? "application" : "registration" }
   Devise::ConfirmationsController.layout "devise"
   Devise::UnlocksController.layout "devise"
   Devise::PasswordsController.layout "devise"
