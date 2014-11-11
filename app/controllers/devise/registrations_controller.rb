@@ -102,7 +102,8 @@ class Devise::RegistrationsController < DeviseController
 # The path used after sign up. You need to overwrite this method
 # in your own RegistrationsController.
   def after_sign_up_path_for(resource)
-    after_sign_in_path_for(resource)
+    #after_sign_in_path_for(resource)
+    setup_apiary_path(:start)
   end
 # The path used after sign up for inactive accounts. You need to overwrite
 # this method in your own RegistrationsController.
@@ -138,5 +139,5 @@ class Devise::RegistrationsController < DeviseController
   def registration_edit_params
     devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password)}
   end
-  
+
 end

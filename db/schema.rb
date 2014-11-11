@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111104118) do
+ActiveRecord::Schema.define(version: 20141111105126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,11 @@ ActiveRecord::Schema.define(version: 20141111104118) do
   add_index "apiaries", ["apiary_forage_type_id"], name: "index_apiaries_on_apiary_forage_type_id", using: :btree
   add_index "apiaries", ["apiary_type_id"], name: "index_apiaries_on_apiary_type_id", using: :btree
   add_index "apiaries", ["owner_id"], name: "index_apiaries_on_owner_id", using: :btree
+
+  create_table "apiaries_beekeepers", force: true do |t|
+    t.integer "apiary_id"
+    t.integer "beekeeper_id"
+  end
 
   create_table "apiary_setups", force: true do |t|
     t.datetime "created_at"

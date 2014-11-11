@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :apiaries
 
+  resources :setup_apiary 
+
   devise_for :beekeepers
   get 'dashboard/index'
 
