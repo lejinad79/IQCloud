@@ -45,3 +45,4 @@ gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem 'jquery-turbolinks'
 gem 'wicked'
+gem "nested_form"

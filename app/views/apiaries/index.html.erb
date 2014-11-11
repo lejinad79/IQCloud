@@ -15,7 +15,7 @@
     <% @apiaries.each do |apiary| %>
       <tr>
         <td><%= apiary.name %></td>
-        <td><%= apiary.apiary_type %></td>
+        <td><%= apiary.apiary_type.name %></td>
         <td><%= apiary.apiary_forage_type %></td>
         <td><%= apiary.description %></td>
         <td><%= link_to 'Show', apiary %></td>

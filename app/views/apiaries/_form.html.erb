@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :apiary_type_id %><br>
-    <%= f.text_field :apiary_type_id %>
+    <%= f.select :apiary_type_id, ApiaryType.owner(current_beekeeper.current_apiary_id).all.map { |i| [ i.name, i.id ] } %>
   </div>
   <div class="field">
     <%= f.label :apiary_forage_type_id %><br>

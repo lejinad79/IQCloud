@@ -1,4 +1,4 @@
-<%= form_for(@apiary_parameters_setup) do |f| %>
+<%= nested_form_for(@apiary_parameters_setup) do |f| %>
   <% if @apiary_parameters_setup.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@apiary_parameters_setup.errors.count, "error") %> prohibited this apiary_parameters_setup from being saved:</h2>
@@ -10,12 +10,42 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <%= f.hidden_field :name %>
+  <div class="row">
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Beehive types:</h3>
+      </div>
+      <div class="panel-body">
+        Panel content
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Apiary types:</h3>
+      </div>
+      <div class="panel-body">
+        <%= f.fields_for :apiary_types do |apiary_type| %>
+          <%= apiary_type.hidden_field :apiary_id, value: current_beekeeper.current_apiary_id  %>
+        <%= apiary_type.text_field :name, :class => 'form-control', :placeholder => 'Apiary type' %>
+        <%= apiary_type.link_to_remove "Remove this apiary type", :class => 'btn btn-danger' %>
+        <% end %>
+      <p><%= f.link_to_add "Add a apiary type", :apiary_types, :class => 'btn btn-primary' %></p>
+        </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Apiary forage types:</h3>
+      </div>
+      <div class="panel-body">
+        Panel content
+      </div>
+    </div>
   </div>
+  <div class="col-md-4">
 
+  </div>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -4,7 +4,7 @@ class ApiariesController < ApplicationController
   # GET /apiaries
   # GET /apiaries.json
   def index
-    @apiaries = Apiary.all
+    @apiaries = Apiary.owner(current_beekeeper.id).all
   end
 
   # GET /apiaries/1
@@ -25,7 +25,7 @@ class ApiariesController < ApplicationController
   # POST /apiaries.json
   def create
     @apiary = Apiary.new(apiary_params)
-
+    @apiary.owner_id = current_beekeeper.id
     respond_to do |format|
       if @apiary.save
         format.html { redirect_to @apiary, notice: 'Apiary was successfully created.' }

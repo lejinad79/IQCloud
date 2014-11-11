@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111135454) do
+ActiveRecord::Schema.define(version: 20141111181928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(version: 20141111135454) do
     t.integer "beekeeper_id"
   end
 
+  create_table "apiary_forage_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "apiary_parameters_setups", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -50,11 +56,19 @@ ActiveRecord::Schema.define(version: 20141111135454) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "apiary_id"
-    t.integer  "owner_id"
   end
 
   add_index "apiary_setups", ["apiary_id"], name: "index_apiary_setups_on_apiary_id", using: :btree
-  add_index "apiary_setups", ["owner_id"], name: "index_apiary_setups_on_owner_id", using: :btree
+
+  create_table "apiary_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "apiary_parameters_setup_id"
+    t.integer  "apiary_id"
+  end
+
+  add_index "apiary_types", ["apiary_id"], name: "index_apiary_types_on_apiary_id", using: :btree
 
   create_table "beekeepers", force: true do |t|
     t.string   "email",                  default: "", null: false
