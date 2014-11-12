@@ -15,6 +15,7 @@ class ApiariesController < ApplicationController
   # GET /apiaries/new
   def new
     @apiary = Apiary.new
+    @apiary.build_map
   end
 
   # GET /apiaries/1/edit
@@ -69,6 +70,22 @@ class ApiariesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apiary_params
-      params.require(:apiary).permit(:name, :apiary_type_id, :apiary_forage_type_id, :description)
+      params.require(:apiary).permit(
+      :name,
+      :apiary_type_id,
+      :apiary_forage_type_id,
+      :description,
+      :map_id,
+      map_attributes:
+      [
+        :id,
+        :latitude,
+        :longitude,
+        :elevation,
+        :notes,
+        :mapable_id,
+        :mapable_type
+      ]
+      )
     end
 end

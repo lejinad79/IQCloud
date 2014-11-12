@@ -1,4 +1,19 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = ApiaryParametersSetup -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<%= link_to 'Edit', edit_apiary_parameters_setup_path(@apiary_parameters_setup) %> |
-<%= link_to 'Back', apiary_parameters_setups_path %>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:apiary_id) %>:</strong></dt>
+  <dd><%= @apiary_parameters_setup.apiary_id %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              apiary_parameters_setups_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_apiary_parameters_setup_path(@apiary_parameters_setup), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              apiary_parameters_setup_path(@apiary_parameters_setup),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

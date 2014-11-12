@@ -1,0 +1,10 @@
+<%= f.fields_for :apiary_forage_types do |v| %>
+<table class="table table-striped">
+<tr>
+  <td><%= v.hidden_field :apiary_id, value: current_beekeeper.current_apiary_id  %></td>
+  <td><%= v.text_field :name, :class => 'form-control', :placeholder => 'Apiary type' %></td>
+  <td><%= v.link_to_remove "Remove", :class => 'btn btn-danger' %></td>
+</tr>
+</table>
+    <% end %>
+<p><%= f.link_to_add "Add", :apiary_forage_types, :class => 'btn btn-primary' %></p>

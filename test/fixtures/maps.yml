@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  latitude: MyString
+  longitude: MyString
+  elevation: MyString
+  notes: MyText
+  mapable_id: 1
+  mapable_type: MyString
+
+two:
+  latitude: MyString
+  longitude: MyString
+  elevation: MyString
+  notes: MyText
+  mapable_id: 1
+  mapable_type: MyString

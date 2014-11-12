@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111181928) do
+ActiveRecord::Schema.define(version: 20141112133926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,10 @@ ActiveRecord::Schema.define(version: 20141111181928) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "owner_id"
+    t.integer  "map_id"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.text     "notes"
   end
 
   add_index "apiaries", ["apiary_forage_type_id"], name: "index_apiaries_on_apiary_forage_type_id", using: :btree
@@ -39,18 +43,19 @@ ActiveRecord::Schema.define(version: 20141111181928) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "apiary_id"
+    t.integer  "apiary_parameters_setup_id"
   end
 
+  add_index "apiary_forage_types", ["apiary_id"], name: "index_apiary_forage_types_on_apiary_id", using: :btree
+
   create_table "apiary_parameters_setups", force: true do |t|
+    t.integer  "apiary_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "owner_id"
-    t.integer  "apiary_id"
-    t.string   "name"
   end
 
   add_index "apiary_parameters_setups", ["apiary_id"], name: "index_apiary_parameters_setups_on_apiary_id", using: :btree
-  add_index "apiary_parameters_setups", ["owner_id"], name: "index_apiary_parameters_setups_on_owner_id", using: :btree
 
   create_table "apiary_setups", force: true do |t|
     t.datetime "created_at"
@@ -69,6 +74,26 @@ ActiveRecord::Schema.define(version: 20141111181928) do
   end
 
   add_index "apiary_types", ["apiary_id"], name: "index_apiary_types_on_apiary_id", using: :btree
+
+  create_table "beehive_group_types", force: true do |t|
+    t.string   "name"
+    t.integer  "apiary_id"
+    t.integer  "apiary_parameters_setup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "beehive_group_types", ["apiary_id"], name: "index_beehive_group_types_on_apiary_id", using: :btree
+
+  create_table "beehive_types", force: true do |t|
+    t.string   "name"
+    t.integer  "apiary_id"
+    t.integer  "apiary_parameters_setup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "beehive_types", ["apiary_id"], name: "index_beehive_types_on_apiary_id", using: :btree
 
   create_table "beekeepers", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -90,5 +115,16 @@ ActiveRecord::Schema.define(version: 20141111181928) do
 
   add_index "beekeepers", ["email"], name: "index_beekeepers_on_email", unique: true, using: :btree
   add_index "beekeepers", ["reset_password_token"], name: "index_beekeepers_on_reset_password_token", unique: true, using: :btree
+
+  create_table "maps", force: true do |t|
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "elevation"
+    t.text     "notes"
+    t.integer  "mapable_id"
+    t.string   "mapable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

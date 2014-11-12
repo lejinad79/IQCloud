@@ -4,7 +4,7 @@ class ApiaryParametersSetupsController < ApplicationController
   # GET /apiary_parameters_setups
   # GET /apiary_parameters_setups.json
   def index
-    @apiary_parameters_setups = ApiaryParametersSetup.owner(current_beekeeper.current_apiary_id).all
+    @apiary_parameters_setups = ApiaryParametersSetup.owner(current_beekeeper.id).all
   end
 
   # GET /apiary_parameters_setups/1
@@ -15,8 +15,10 @@ class ApiaryParametersSetupsController < ApplicationController
   # GET /apiary_parameters_setups/new
   def new
     @apiary_parameters_setup = ApiaryParametersSetup.new
+    @apiary_parameters_setup.beehive_types.build
     @apiary_parameters_setup.apiary_types.build
     @apiary_parameters_setup.apiary_forage_types.build
+    @apiary_parameters_setup.beehive_group_types.build
   end
 
   # GET /apiary_parameters_setups/1/edit
@@ -28,6 +30,7 @@ class ApiaryParametersSetupsController < ApplicationController
   def create
     @apiary_parameters_setup = ApiaryParametersSetup.new(apiary_parameters_setup_params)
     @apiary_parameters_setup.apiary_id = current_beekeeper.current_apiary_id
+    @apiary_parameters_setup.apiary_id = current_beekeeper.id
     respond_to do |format|
       if @apiary_parameters_setup.save
         format.html { redirect_to @apiary_parameters_setup, notice: 'Apiary parameters setup was successfully created.' }
@@ -73,9 +76,11 @@ class ApiaryParametersSetupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apiary_parameters_setup_params
-      params.require(:apiary_parameters_setup).permit(:name,
+      params.require(:apiary_parameters_setup).permit(:apiary_id,
+      beehive_types_attributes: [:id, :name, :apiary_parameters_setup_id, :apiary_id, :_destroy],
       apiary_types_attributes: [:id, :name, :apiary_parameters_setup_id, :apiary_id, :_destroy],
-      apiary_forage_types_attributes: [:id, :name, :owner_id, :_destroy]
+      apiary_forage_types_attributes: [:id, :name, :apiary_parameters_setup_id, :apiary_id, :_destroy],
+      beehive_group_types_attributes: [:id, :name, :apiary_parameters_setup_id, :apiary_id, :_destroy]
       )
     end
 

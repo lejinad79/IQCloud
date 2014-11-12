@@ -10,15 +10,24 @@
       </ul>
     </div>
   <% end %>
-  <%= f.hidden_field :name %>
   <div class="row">
   <div class="col-md-8">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Your Apiary</h3>
+      </div>
+      <div class="panel-body">
+        <div class="well">
+          <%= f.select :apiary_id, Apiary.owner(current_beekeeper.id).all.map { |a| [ a.name, a.id ] } %>
+        </div>
+      </div>
+    </div>
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">Beehive types:</h3>
       </div>
       <div class="panel-body">
-        Panel content
+        <%= render :partial => 'parameters_setup_partials/beehive_types', :locals => {:f => f} %>
       </div>
     </div>
     <div class="panel panel-default">
@@ -26,19 +35,22 @@
         <h3 class="panel-title">Apiary types:</h3>
       </div>
       <div class="panel-body">
-        <%= f.fields_for :apiary_types do |apiary_type| %>
-          <%= apiary_type.hidden_field :apiary_id, value: current_beekeeper.current_apiary_id  %>
-        <%= apiary_type.text_field :name, :class => 'form-control', :placeholder => 'Apiary type' %>
-        <%= apiary_type.link_to_remove "Remove this apiary type", :class => 'btn btn-danger' %>
-        <% end %>
-      <p><%= f.link_to_add "Add a apiary type", :apiary_types, :class => 'btn btn-primary' %></p>
-        </div>
+        <%= render :partial => 'parameters_setup_partials/apiary_types', :locals => {:f => f} %>
+      </div>
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">Apiary forage types:</h3>
       </div>
       <div class="panel-body">
-        Panel content
+        <%= render :partial => 'parameters_setup_partials/apiary_forage_types', :locals => {:f => f} %>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Apiary forage types:</h3>
+      </div>
+      <div class="panel-body">
+        <%= render :partial => 'parameters_setup_partials/beehive_group_types', :locals => {:f => f} %>
       </div>
     </div>
   </div>
