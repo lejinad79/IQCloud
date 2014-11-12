@@ -4,7 +4,9 @@
     <data-source source="LOCAL" name="Rails IQCloud: development" uuid="1f531ab3-46da-477c-bb96-54c490fc0526">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:IQCloud_development</jdbc-url>
+      <jdbc-url>jdbc:postgresql://127.0.0.1/dev</jdbc-url>
+      <user-name>poostgres</user-name>
+      <user-password>df9bdf92df93df9bdf93df92df9b</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails IQCloud: test" uuid="88b36a2d-d646-47f4-8ca7-63572f4e015d">

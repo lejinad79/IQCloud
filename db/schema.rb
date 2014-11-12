@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112133926) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20141112172616) do
 
   create_table "apiaries", force: true do |t|
     t.string   "name"
@@ -24,7 +21,6 @@ ActiveRecord::Schema.define(version: 20141112133926) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "owner_id"
-    t.integer  "map_id"
     t.string   "latitude"
     t.string   "longitude"
     t.text     "notes"
@@ -53,9 +49,11 @@ ActiveRecord::Schema.define(version: 20141112133926) do
     t.integer  "apiary_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "owner_id"
   end
 
   add_index "apiary_parameters_setups", ["apiary_id"], name: "index_apiary_parameters_setups_on_apiary_id", using: :btree
+  add_index "apiary_parameters_setups", ["owner_id"], name: "index_apiary_parameters_setups_on_owner_id", using: :btree
 
   create_table "apiary_setups", force: true do |t|
     t.datetime "created_at"
@@ -69,8 +67,8 @@ ActiveRecord::Schema.define(version: 20141112133926) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "apiary_parameters_setup_id"
     t.integer  "apiary_id"
+    t.integer  "apiary_parameters_setup_id"
   end
 
   add_index "apiary_types", ["apiary_id"], name: "index_apiary_types_on_apiary_id", using: :btree
@@ -104,8 +102,8 @@ ActiveRecord::Schema.define(version: 20141112133926) do
     t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "first_name"
@@ -115,16 +113,5 @@ ActiveRecord::Schema.define(version: 20141112133926) do
 
   add_index "beekeepers", ["email"], name: "index_beekeepers_on_email", unique: true, using: :btree
   add_index "beekeepers", ["reset_password_token"], name: "index_beekeepers_on_reset_password_token", unique: true, using: :btree
-
-  create_table "maps", force: true do |t|
-    t.string   "latitude"
-    t.string   "longitude"
-    t.string   "elevation"
-    t.text     "notes"
-    t.integer  "mapable_id"
-    t.string   "mapable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end
