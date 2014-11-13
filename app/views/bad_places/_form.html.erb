@@ -1,3 +1,10 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">New bad place data</h3>
+      </div>
+      <div class="panel-body">
 <%= form_for @bad_place, :html => { :class => "form-horizontal bad_place" } do |f| %>
 
     <% if @bad_place.errors.any? %>
@@ -25,7 +32,7 @@
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :description, :class => 'form-control' %>
+      <%= f.text_area :description, :class => 'form-control' %>
     </div>
     <%= error_span(@bad_place[:description]) %>
   </div>
@@ -50,10 +57,37 @@
     </div>
     <%= error_span(@bad_place[:elevation]) %>
   </div>
+      </div>
+      <div class="panel-footer">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                    bad_places_path, :class => 'btn btn-default' %>
 
-
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            bad_places_path, :class => 'btn btn-default' %>
-
-<% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Map</h3>
+      </div>
+      <div class="panel-body">
+        <fieldset class="gllpLatlonPicker">
+          <input type="text" class="gllpSearchField">
+          <input type="button" class="gllpSearchButton" value="search">
+          <br/><br/>
+          <div class="gllpMap">Google Maps</div>
+          <br/>
+          lat/lon:
+          <input type="text" class="gllpLatitude" value="20"/>
+          /
+          <input type="text" class="gllpLongitude" value="20"/>
+          zoom: <input type="text" class="gllpZoom" value="3"/>
+          <input type="button" class="gllpUpdateButton" value="update map">
+          <br/>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>

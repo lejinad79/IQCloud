@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="col-md-8">
 <%= form_for @economy, :html => { :class => "form-horizontal economy" } do |f| %>
 
     <% if @economy.errors.any? %>
@@ -14,7 +16,11 @@
       </div>
     </div>
   <% end %>
-
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">New economy data</h3>
+          </div>
+          <div class="panel-body">
   <div class="control-group">
     <%= f.label :beehive_id, :class => 'control-label' %>
     <div class="controls">
@@ -64,10 +70,15 @@
     </div>
     <%= error_span(@economy[:date]) %>
   </div>
-
-
+            </div>
+          <div class="panel-footer">
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
             economies_path, :class => 'btn btn-default' %>
+          </div>
+        </div>
 
 <% end %>
+  </div>
+  <div class="col-md-4">.col-md-4</div>
+</div>

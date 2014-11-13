@@ -37,3 +37,4 @@ gem 'jquery-turbolinks'
 gem 'wicked'
 gem "nested_form"
 gem 'postgres_ext'
+gem 'jquery-datatables-rails', '~> 3.0.0'

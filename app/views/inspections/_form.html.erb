@@ -1,3 +1,10 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">New inspection data</h3>
+      </div>
+      <div class="panel-body">
 <%= form_for @inspection, :html => { :class => "form-horizontal inspection" } do |f| %>
 
     <% if @inspection.errors.any? %>
@@ -14,7 +21,6 @@
       </div>
     </div>
   <% end %>
-
   <div class="control-group">
     <%= f.label :beehive_id, :class => 'control-label' %>
     <div class="controls">
@@ -116,14 +122,14 @@
   <div class="control-group">
     <%= f.label :alert_info, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :alert_info, :class => 'form-control' %>
+      <%= f.text_area :alert_info, :class => 'form-control' %>
     </div>
     <%= error_span(@inspection[:alert_info]) %>
   </div>
   <div class="control-group">
     <%= f.label :note_info, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :note_info, :class => 'form-control' %>
+      <%= f.text_area :note_info, :class => 'form-control' %>
     </div>
     <%= error_span(@inspection[:note_info]) %>
   </div>
@@ -155,10 +161,17 @@
     </div>
     <%= error_span(@inspection[:inspection_before_winter]) %>
   </div>
+      </div>
+      <div class="panel-footer">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                    inspections_path, :class => 'btn btn-default' %>
 
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
 
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            inspections_path, :class => 'btn btn-default' %>
-
-<% end %>
+  </div>
+</div>

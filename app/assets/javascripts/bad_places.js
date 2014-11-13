@@ -1,4 +1,3 @@
 $(document).ready(function() {
-    $('#apiaries').dataTable();
+    $('#bad_places').dataTable();
 } );
-

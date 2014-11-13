@@ -1,4 +1,3 @@
 $(document).ready(function() {
-    $('#apiaries').dataTable();
+    $('#locations').dataTable();
 } );
-

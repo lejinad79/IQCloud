@@ -1,80 +1,93 @@
-<%= form_for @location, :html => { :class => "form-horizontal location" } do |f| %>
+<div class="row">
+  <div class="col-md-8">
+    <%= form_for @location, :html => {:class => "form-horizontal location"} do |f| %>
 
-    <% if @location.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-        <% @location.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+        <% if @location.errors.any? %>
+            <div id="error_expl" class="panel panel-danger">
+              <div class="panel-heading">
+                <h3 class="panel-title"><%= pluralize(@location.errors.count, "error") %> prohibited this location from
+                  being saved:</h3>
+              </div>
+              <div class="panel-body">
+                <ul>
+                  <% @location.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
         <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">New location data</h3>
+          </div>
+          <div class="panel-body">
+            <div class="control-group">
+              <%= f.label :title, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :title, :class => 'form-control' %>
+              </div>
+              <%= error_span(@location[:title]) %>
+            </div>
+            <div class="control-group">
+              <%= f.label :description, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :description, :class => 'form-control' %>
+              </div>
+              <%= error_span(@location[:description]) %>
+            </div>
+            <div class="control-group">
+              <%= f.label :latitude, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :latitude, :class => 'form-control' %>
+              </div>
+              <%= error_span(@location[:latitude]) %>
+            </div>
+            <div class="control-group">
+              <%= f.label :longitude, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :longitude, :class => 'form-control' %>
+              </div>
+              <%= error_span(@location[:longitude]) %>
+            </div>
+            <div class="control-group">
+              <%= f.label :elevation, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :elevation, :class => 'form-control' %>
+              </div>
+              <%= error_span(@location[:elevation]) %>
+            </div>
+            <div class="control-group">
+              <%= f.label :country_id, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :country_id, :class => 'form-control' %>
+              </div>
+              <%= error_span(@location[:country_id]) %>
+            </div>
+            <div class="control-group">
+              <%= f.label :forages_id, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :forages_id, :class => 'form-control' %>
+              </div>
+              <%= error_span(@location[:forages_id]) %>
+            </div>
+            <div class="control-group">
+              <%= f.label :private_location, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :private_location, :class => 'form-control' %>
+              </div>
+              <%= error_span(@location[:private_location]) %>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <%= f.submit nil, :class => 'btn btn-primary' %>
+            <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                        locations_path, :class => 'btn btn-default' %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <div class="col-md-4">
 
-  <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :title, :class => 'form-control' %>
-    </div>
-    <%= error_span(@location[:title]) %>
   </div>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :description, :class => 'form-control' %>
-    </div>
-    <%= error_span(@location[:description]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :latitude, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :latitude, :class => 'form-control' %>
-    </div>
-    <%= error_span(@location[:latitude]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :longitude, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :longitude, :class => 'form-control' %>
-    </div>
-    <%= error_span(@location[:longitude]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :elevation, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :elevation, :class => 'form-control' %>
-    </div>
-    <%= error_span(@location[:elevation]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :country_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :country_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@location[:country_id]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :forages_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :forages_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@location[:forages_id]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :private_location, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :private_location, :class => 'form-control' %>
-    </div>
-    <%= error_span(@location[:private_location]) %>
-  </div>
-
-
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            locations_path, :class => 'btn btn-default' %>
-
-<% end %>
+</div>

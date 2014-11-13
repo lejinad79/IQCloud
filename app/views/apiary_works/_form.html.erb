@@ -1,3 +1,10 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">New apiary work data</h3>
+      </div>
+      <div class="panel-body">
 <%= form_for @apiary_work, :html => { :class => "form-horizontal apiary_work" } do |f| %>
 
     <% if @apiary_work.errors.any? %>
@@ -14,7 +21,6 @@
       </div>
     </div>
   <% end %>
-
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
@@ -25,14 +31,14 @@
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :description, :class => 'form-control' %>
+      <%= f.text_area :description, :class => 'form-control' %>
     </div>
     <%= error_span(@apiary_work[:description]) %>
   </div>
   <div class="control-group">
     <%= f.label :notes, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :notes, :class => 'form-control' %>
+      <%= f.text_area :notes, :class => 'form-control' %>
     </div>
     <%= error_span(@apiary_work[:notes]) %>
   </div>
@@ -65,9 +71,21 @@
     <%= error_span(@apiary_work[:date]) %>
   </div>
 
+      </div>
 
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            apiary_works_path, :class => 'btn btn-default' %>
+
+      <div class="panel-footer">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                    apiary_works_path, :class => 'btn btn-default' %>
 
 <% end %>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="col-md-4">
+
+  </div>
+</div>
