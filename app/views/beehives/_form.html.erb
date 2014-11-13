@@ -1,164 +1,221 @@
-<%= form_for @beehive, :html => { :class => "form-horizontal beehive" } do |f| %>
-
-    <% if @beehive.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
+<div class="row">
+  <div class="col-md-8">
+    <div class="panel panel-primary">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@beehive.errors.count, "error") %> prohibited this beehive from being saved:</h3>
+        <h3 class="panel-title">New beehive data</h3>
       </div>
       <div class="panel-body">
-        <ul>
-        <% @beehive.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+        <%= form_for @beehive, :html => {:class => "form-horizontal beehive"} do |f| %>
+
+            <% if @beehive.errors.any? %>
+                <div id="error_expl" class="panel panel-danger">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><%= pluralize(@beehive.errors.count, "error") %> prohibited this beehive
+                      from being saved:</h3>
+                  </div>
+                  <div class="panel-body">
+                    <ul>
+                      <% @beehive.errors.full_messages.each do |msg| %>
+                          <li><%= msg %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
+            <% end %>
+
+            <div class="control-group">
+              <%= f.label :name, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :name, :class => 'form-control' %>
+              </div>
+              <%= error_span(@beehive[:name]) %>
+            </div>
+            <div class="control-group">
+              <%= f.label :beehive_type_id, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :beehive_type_id, :class => 'form-control' %>
+              </div>
+              <%= error_span(@beehive[:beehive_type_id]) %>
+            </div>
+            <div class="control-group">
+              <%= f.label :apiary_id, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :apiary_id, :class => 'form-control' %>
+              </div>
+              <%= error_span(@beehive[:apiary_id]) %>
+            </div>
+            <div class="control-group">
+              <%= f.label :group_id, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :group_id, :class => 'form-control' %>
+              </div>
+              <%= error_span(@beehive[:group_id]) %>
+            </div>
+            <div class="control-group">
+              <%= f.label :colony_source_id, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :colony_source_id, :class => 'form-control' %>
+              </div>
+              <%= error_span(@beehive[:colony_source_id]) %>
+            </div>
+            <div class="control-group">
+              <%= f.label :colony_strength, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :colony_strength, :class => 'form-control' %>
+              </div>
+              <%= error_span(@beehive[:colony_strength]) %>
+            </div>
+            <div class="control-group">
+              <%= f.label :colony_quality, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :colony_quality, :class => 'form-control' %>
+              </div>
+              <%= error_span(@beehive[:colony_quality]) %>
+            </div>
+            <div class="control-group">
+              <%= f.label :supers_id, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :supers_id, :class => 'form-control' %>
+              </div>
+              <%= error_span(@beehive[:supers_id]) %>
+            </div>
+            <div class="control-group">
+              <%= f.label :notes, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_area :notes, :class => 'form-control' %>
+              </div>
+              <%= error_span(@beehive[:notes]) %>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Queen Info
+                  </h3>
+                </div>
+                <div class="panel-body">
+                  <div class="well">
+                    <div class="control-group">
+                      <%= f.label :queen_name, :class => 'control-label' %>
+                      <div class="controls">
+                        <%= f.text_field :queen_name, :class => 'form-control' %>
+                      </div>
+                      <%= error_span(@beehive[:queen_name]) %>
+                    </div>
+                  </div>
+
+                  <div role="tabpanel">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Bought</a></li>
+                      <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Manufactured</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane active" id="home">
+                        <div class="control-group">
+                          <%= f.label :seller_first_name, :class => 'control-label' %>
+                          <div class="controls">
+                            <%= f.text_field :seller_first_name, :class => 'form-control' %>
+                          </div>
+                          <%= error_span(@beehive[:seller_first_name]) %>
+                        </div>
+                        <div class="control-group">
+                          <%= f.label :seller_last_name, :class => 'control-label' %>
+                          <div class="controls">
+                            <%= f.text_field :seller_last_name, :class => 'form-control' %>
+                          </div>
+                          <%= error_span(@beehive[:seller_last_name]) %>
+                        </div>
+                        <div class="control-group">
+                          <%= f.label :place, :class => 'control-label' %>
+                          <div class="controls">
+                            <%= f.text_field :place, :class => 'form-control' %>
+                          </div>
+                          <%= error_span(@beehive[:place]) %>
+                        </div>
+                        <div class="control-group">
+                          <%= f.label :address, :class => 'control-label' %>
+                          <div class="controls">
+                            <%= f.text_field :address, :class => 'form-control' %>
+                          </div>
+                          <%= error_span(@beehive[:address]) %>
+                        </div>
+                        <div class="control-group">
+                          <%= f.label :email_address, :class => 'control-label' %>
+                          <div class="controls">
+                            <%= f.text_field :email_address, :class => 'form-control' %>
+                          </div>
+                          <%= error_span(@beehive[:email_address]) %>
+                        </div>
+                        <div class="control-group">
+                          <%= f.label :phone, :class => 'control-label' %>
+                          <div class="controls">
+                            <%= f.text_field :phone, :class => 'form-control' %>
+                          </div>
+                          <%= error_span(@beehive[:phone]) %>
+                        </div>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="profile">
+                        <div class="control-group">
+                          <%= f.label :from_apiary_id, :class => 'control-label' %>
+                          <div class="controls">
+                            <%= f.text_field :from_apiary_id, :class => 'form-control' %>
+                          </div>
+                          <%= error_span(@beehive[:from_apiary_id]) %>
+                        </div>
+                        <div class="control-group">
+                          <%= f.label :from_beehive_id, :class => 'control-label' %>
+                          <div class="controls">
+                            <%= f.text_field :from_beehive_id, :class => 'form-control' %>
+                          </div>
+                          <%= error_span(@beehive[:from_beehive_id]) %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <div class="well">
+                        <div class="control-group">
+                          <%= f.label :race, :class => 'control-label' %>
+                          <div class="controls">
+                            <%= f.text_field :race, :class => 'form-control' %>
+                          </div>
+                          <%= error_span(@beehive[:race]) %>
+                        </div>
+                        <div class="control-group">
+                          <%= f.label :installed, :class => 'control-label' %>
+                          <div class="controls">
+                            <%= f.text_field :installed, :class => 'form-control' %>
+                          </div>
+                          <%= error_span(@beehive[:installed]) %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <%= f.submit nil, :class => 'btn btn-primary' %>
+                    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                                beehives_path, :class => 'btn btn-default' %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6"></div>
+            </div>
+
+
+
+
         <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
-
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:name]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :beehive_type_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :beehive_type_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:beehive_type_id]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :apiary_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :apiary_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:apiary_id]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :group_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :group_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:group_id]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :colony_source_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :colony_source_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:colony_source_id]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :colony_strength, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :colony_strength, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:colony_strength]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :colony_quality, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :colony_quality, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:colony_quality]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :supers_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :supers_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:supers_id]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :notes, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :notes, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:notes]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :queen_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :queen_name, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:queen_name]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :seller_first_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :seller_first_name, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:seller_first_name]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :seller_last_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :seller_last_name, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:seller_last_name]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :place, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :place, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:place]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :address, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :address, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:address]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :email_address, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :email_address, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:email_address]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :phone, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :phone, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:phone]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :from_apiary_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :from_apiary_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:from_apiary_id]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :from_beehive_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :from_beehive_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:from_beehive_id]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :race, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :race, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:race]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :installed, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :installed, :class => 'form-control' %>
-    </div>
-    <%= error_span(@beehive[:installed]) %>
-  </div>
-
-
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            beehives_path, :class => 'btn btn-default' %>
-
-<% end %>

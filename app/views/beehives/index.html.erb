@@ -10,23 +10,8 @@
       <th><%= model_class.human_attribute_name(:beehive_type_id) %></th>
       <th><%= model_class.human_attribute_name(:apiary_id) %></th>
       <th><%= model_class.human_attribute_name(:group_id) %></th>
-      <th><%= model_class.human_attribute_name(:colony_source_id) %></th>
-      <th><%= model_class.human_attribute_name(:colony_strength) %></th>
-      <th><%= model_class.human_attribute_name(:colony_quality) %></th>
-      <th><%= model_class.human_attribute_name(:supers_id) %></th>
-      <th><%= model_class.human_attribute_name(:notes) %></th>
       <th><%= model_class.human_attribute_name(:queen_name) %></th>
-      <th><%= model_class.human_attribute_name(:seller_first_name) %></th>
-      <th><%= model_class.human_attribute_name(:seller_last_name) %></th>
-      <th><%= model_class.human_attribute_name(:place) %></th>
-      <th><%= model_class.human_attribute_name(:address) %></th>
-      <th><%= model_class.human_attribute_name(:email_address) %></th>
-      <th><%= model_class.human_attribute_name(:phone) %></th>
-      <th><%= model_class.human_attribute_name(:from_apiary_id) %></th>
-      <th><%= model_class.human_attribute_name(:from_beehive_id) %></th>
-      <th><%= model_class.human_attribute_name(:race) %></th>
       <th><%= model_class.human_attribute_name(:installed) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -38,23 +23,8 @@
         <td><%= beehive.beehive_type_id %></td>
         <td><%= beehive.apiary_id %></td>
         <td><%= beehive.group_id %></td>
-        <td><%= beehive.colony_source_id %></td>
-        <td><%= beehive.colony_strength %></td>
-        <td><%= beehive.colony_quality %></td>
-        <td><%= beehive.supers_id %></td>
-        <td><%= beehive.notes %></td>
         <td><%= beehive.queen_name %></td>
-        <td><%= beehive.seller_first_name %></td>
-        <td><%= beehive.seller_last_name %></td>
-        <td><%= beehive.place %></td>
-        <td><%= beehive.address %></td>
-        <td><%= beehive.email_address %></td>
-        <td><%= beehive.phone %></td>
-        <td><%= beehive.from_apiary_id %></td>
-        <td><%= beehive.from_beehive_id %></td>
-        <td><%= beehive.race %></td>
         <td><%= beehive.installed %></td>
-        <td><%=l beehive.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_beehive_path(beehive), :class => 'btn btn-default btn-xs' %>
