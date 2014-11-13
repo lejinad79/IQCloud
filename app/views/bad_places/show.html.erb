@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bad_place.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bad_place.description %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @bad_place.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @bad_place.longitude %>
+</p>
+
+<p>
+  <strong>Elevation:</strong>
+  <%= @bad_place.elevation %>
+</p>
+
+<%= link_to 'Edit', edit_bad_place_path(@bad_place) %> |
+<%= link_to 'Back', bad_places_path %>

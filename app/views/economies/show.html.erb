@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Beehive:</strong>
+  <%= @economy.beehive %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @economy.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @economy.category %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @economy.type %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @economy.description %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @economy.value %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @economy.date %>
+</p>
+
+<%= link_to 'Edit', edit_economy_path(@economy) %> |
+<%= link_to 'Back', economies_path %>

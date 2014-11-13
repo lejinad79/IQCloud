@@ -1,0 +1,53 @@
+<%= form_for(@feeding) do |f| %>
+  <% if @feeding.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@feeding.errors.count, "error") %> prohibited this feeding from being saved:</h2>
+
+      <ul>
+      <% @feeding.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :beehive_id %><br>
+    <%= f.text_field :beehive_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :food_type_id %><br>
+    <%= f.text_field :food_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity_unit_id %><br>
+    <%= f.text_field :quantity_unit_id %>
+  </div>
+  <div class="field">
+    <%= f.label :supplements_id %><br>
+    <%= f.text_field :supplements_id %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br>
+    <%= f.text_field :value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

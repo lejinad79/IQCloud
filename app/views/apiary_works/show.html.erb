@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @apiary_work.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @apiary_work.description %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @apiary_work.notes %>
+</p>
+
+<p>
+  <strong>Apiary:</strong>
+  <%= @apiary_work.apiary %>
+</p>
+
+<p>
+  <strong>Hives:</strong>
+  <%= @apiary_work.hives %>
+</p>
+
+<p>
+  <strong>Work information type:</strong>
+  <%= @apiary_work.work_information_type %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @apiary_work.date %>
+</p>
+
+<%= link_to 'Edit', edit_apiary_work_path(@apiary_work) %> |
+<%= link_to 'Back', apiary_works_path %>

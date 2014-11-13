@@ -1,0 +1,65 @@
+<h1>Listing beehives</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Beehive type</th>
+      <th>Apiary</th>
+      <th>Group</th>
+      <th>Colony source</th>
+      <th>Colony strength</th>
+      <th>Colony quality</th>
+      <th>Supers</th>
+      <th>Notes</th>
+      <th>Queen name</th>
+      <th>Seller first name</th>
+      <th>Seller last name</th>
+      <th>Place</th>
+      <th>Address</th>
+      <th>Email address</th>
+      <th>Phone</th>
+      <th>Notes</th>
+      <th>From apiary</th>
+      <th>From beehive</th>
+      <th>Race</th>
+      <th>Installed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @beehives.each do |beehive| %>
+      <tr>
+        <td><%= beehive.name %></td>
+        <td><%= beehive.beehive_type %></td>
+        <td><%= beehive.apiary %></td>
+        <td><%= beehive.group %></td>
+        <td><%= beehive.colony_source %></td>
+        <td><%= beehive.colony_strength %></td>
+        <td><%= beehive.colony_quality %></td>
+        <td><%= beehive.supers %></td>
+        <td><%= beehive.notes %></td>
+        <td><%= beehive.queen_name %></td>
+        <td><%= beehive.seller_first_name %></td>
+        <td><%= beehive.seller_last_name %></td>
+        <td><%= beehive.place %></td>
+        <td><%= beehive.address %></td>
+        <td><%= beehive.email_address %></td>
+        <td><%= beehive.phone %></td>
+        <td><%= beehive.notes %></td>
+        <td><%= beehive.from_apiary %></td>
+        <td><%= beehive.from_beehive %></td>
+        <td><%= beehive.race %></td>
+        <td><%= beehive.installed %></td>
+        <td><%= link_to 'Show', beehive %></td>
+        <td><%= link_to 'Edit', edit_beehive_path(beehive) %></td>
+        <td><%= link_to 'Destroy', beehive, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Beehive', new_beehive_path %>

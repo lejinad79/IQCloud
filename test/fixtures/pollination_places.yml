@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  farmer_first_name: MyString
+  farmer_last_name: MyString
+  farm_name: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  phone: MyString
+  zip: MyString
+  email_address: MyString
+  plant_id: 
+  start_date: 2014-11-13
+  end_date: 2014-11-13
+  description: MyText
+  latitude: MyString
+  longitude: MyString
+  elevation: MyString
+
+two:
+  farmer_first_name: MyString
+  farmer_last_name: MyString
+  farm_name: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  phone: MyString
+  zip: MyString
+  email_address: MyString
+  plant_id: 
+  start_date: 2014-11-13
+  end_date: 2014-11-13
+  description: MyText
+  latitude: MyString
+  longitude: MyString
+  elevation: MyString

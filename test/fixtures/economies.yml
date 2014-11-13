@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  beehive_id: 
+  name: MyString
+  category_id: 
+  type_id: 
+  description: MyText
+  value: MyString
+  date: 2014-11-13
+
+two:
+  beehive_id: 
+  name: MyString
+  category_id: 
+  type_id: 
+  description: MyText
+  value: MyString
+  date: 2014-11-13

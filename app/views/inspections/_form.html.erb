@@ -1,0 +1,97 @@
+<%= form_for(@inspection) do |f| %>
+  <% if @inspection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@inspection.errors.count, "error") %> prohibited this inspection from being saved:</h2>
+
+      <ul>
+      <% @inspection.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :beehive_id %><br>
+    <%= f.text_field :beehive_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :society_strength %><br>
+    <%= f.number_field :society_strength %>
+  </div>
+  <div class="field">
+    <%= f.label :the_nature_of_the_bees %><br>
+    <%= f.number_field :the_nature_of_the_bees %>
+  </div>
+  <div class="field">
+    <%= f.label :swarm_drive %><br>
+    <%= f.check_box :swarm_drive %>
+  </div>
+  <div class="field">
+    <%= f.label :a_qulet_shift %><br>
+    <%= f.check_box :a_qulet_shift %>
+  </div>
+  <div class="field">
+    <%= f.label :the_forced %><br>
+    <%= f.check_box :the_forced %>
+  </div>
+  <div class="field">
+    <%= f.label :disease_id %><br>
+    <%= f.text_field :disease_id %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_frames_with_brood %><br>
+    <%= f.number_field :number_of_frames_with_brood %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_frames_with_honey %><br>
+    <%= f.number_field :number_of_frames_with_honey %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_frames_with_pollen %><br>
+    <%= f.number_field :number_of_frames_with_pollen %>
+  </div>
+  <div class="field">
+    <%= f.label :quality_nut %><br>
+    <%= f.number_field :quality_nut %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_opened_broods %><br>
+    <%= f.number_field :number_of_opened_broods %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_closed_broods %><br>
+    <%= f.number_field :number_of_closed_broods %>
+  </div>
+  <div class="field">
+    <%= f.label :alert_info %><br>
+    <%= f.text_area :alert_info %>
+  </div>
+  <div class="field">
+    <%= f.label :note_info %><br>
+    <%= f.text_area :note_info %>
+  </div>
+  <div class="field">
+    <%= f.label :inspection_date %><br>
+    <%= f.date_select :inspection_date %>
+  </div>
+  <div class="field">
+    <%= f.label :hive_condition %><br>
+    <%= f.number_field :hive_condition %>
+  </div>
+  <div class="field">
+    <%= f.label :firs_spring_inspection %><br>
+    <%= f.check_box :firs_spring_inspection %>
+  </div>
+  <div class="field">
+    <%= f.label :inspection_before_winter %><br>
+    <%= f.check_box :inspection_before_winter %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

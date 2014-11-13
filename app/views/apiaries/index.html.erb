@@ -18,7 +18,7 @@
       <tr>
         <td><%= link_to apiary.id, apiary_path(apiary) %></td>
         <td><%= apiary.name %></td>
-        <% if apiary.apiary_type_id.blank? %>
+        <% if apiary.apiary_type.blank? %>
         <td>
           <div class="alert alert-danger" role="alert">
 
@@ -27,7 +27,7 @@
         <% else %>
         <td><%= apiary.apiary_type.name %></td>
         <% end %>
-        <% if apiary.apiary_forage_type_id.blank? %>
+        <% if apiary.apiary_forage_type.blank? %>
         <td>
           <div class="alert alert-danger" role="alert">
 

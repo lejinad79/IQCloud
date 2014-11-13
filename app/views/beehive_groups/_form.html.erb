@@ -1,0 +1,53 @@
+<%= form_for(@beehive_group) do |f| %>
+  <% if @beehive_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@beehive_group.errors.count, "error") %> prohibited this beehive_group from being saved:</h2>
+
+      <ul>
+      <% @beehive_group.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :apiary_id %><br>
+    <%= f.text_field :apiary_id %>
+  </div>
+  <div class="field">
+    <%= f.label :beehive_group_type_id %><br>
+    <%= f.text_field :beehive_group_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :group_type_id %><br>
+    <%= f.text_field :group_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :elevation %><br>
+    <%= f.text_field :elevation %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

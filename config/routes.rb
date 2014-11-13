@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+  resources :locations
+
+  resources :economies
+
+  resources :harvests
+
+  resources :feedings
+
+  resources :inspections
+
+  resources :apiary_works
+
+  resources :pollination_places
+
+  resources :bad_places
+
+  resources :beehive_groups
+
+  resources :beehives
+
   resources :apiary_parameters_setups
 
   resources :apiary_setups

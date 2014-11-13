@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @beehive_group.name %>
+</p>
+
+<p>
+  <strong>Apiary:</strong>
+  <%= @beehive_group.apiary %>
+</p>
+
+<p>
+  <strong>Beehive group type:</strong>
+  <%= @beehive_group.beehive_group_type %>
+</p>
+
+<p>
+  <strong>Group type:</strong>
+  <%= @beehive_group.group_type %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @beehive_group.description %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @beehive_group.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @beehive_group.longitude %>
+</p>
+
+<p>
+  <strong>Elevation:</strong>
+  <%= @beehive_group.elevation %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @beehive_group.notes %>
+</p>
+
+<%= link_to 'Edit', edit_beehive_group_path(@beehive_group) %> |
+<%= link_to 'Back', beehive_groups_path %>

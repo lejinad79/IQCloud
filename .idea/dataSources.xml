@@ -18,9 +18,9 @@
     <data-source source="LOCAL" name="Rails IQCloud: production" uuid="62d31fac-e4fe-475d-a853-807a518c282e">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:IQCloud_production</jdbc-url>
-      <user-name>IQCloud</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfe3dffbdfe9dfe6dfe5dfffdfeedff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+      <jdbc-url>jdbc:postgresql:d47c9dn4n5qnv7</jdbc-url>
+      <user-name>uthowfuewohmja</user-name>
+      <user-password>dfc8dfdddfcddfdcdfe2dfffdfe5df99dfe5dfe2dfd3dfeedfcfdfe8dfffdf98dff3dff2dfffdfcbdfe0dfe8dfc5dfdddf9edfd8</user-password>
       <libraries />
     </data-source>
   </component>

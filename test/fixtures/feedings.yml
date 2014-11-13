@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  beehive_id: 
+  name: MyString
+  food_type_id: 
+  quantity: 1
+  quantity_unit_id: 
+  supplements_id: 
+  date: 2014-11-13
+  notes: MyText
+  value: MyString
+
+two:
+  beehive_id: 
+  name: MyString
+  food_type_id: 
+  quantity: 1
+  quantity_unit_id: 
+  supplements_id: 
+  date: 2014-11-13
+  notes: MyText
+  value: MyString

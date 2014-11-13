@@ -1,0 +1,2 @@
+module PollinationPlacesHelper
+end

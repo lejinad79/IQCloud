@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Beehive:</strong>
+  <%= @harvest.beehive %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @harvest.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @harvest.type %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @harvest.quantity %>
+</p>
+
+<p>
+  <strong>Quantity unit:</strong>
+  <%= @harvest.quantity_unit %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @harvest.value %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @harvest.date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @harvest.description %>
+</p>
+
+<%= link_to 'Edit', edit_harvest_path(@harvest) %> |
+<%= link_to 'Back', harvests_path %>

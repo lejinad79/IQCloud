@@ -1,0 +1,1 @@
+json.extract! @pollination_place, :id, :farmer_first_name, :farmer_last_name, :farm_name, :address, :city, :state, :country, :phone, :zip, :email_address, :plant_id, :start_date, :end_date, :description, :latitude, :longitude, :elevation, :created_at, :updated_at

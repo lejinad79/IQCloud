@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Beehive:</strong>
+  <%= @feeding.beehive %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @feeding.name %>
+</p>
+
+<p>
+  <strong>Food type:</strong>
+  <%= @feeding.food_type %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @feeding.quantity %>
+</p>
+
+<p>
+  <strong>Quantity unit:</strong>
+  <%= @feeding.quantity_unit %>
+</p>
+
+<p>
+  <strong>Supplements:</strong>
+  <%= @feeding.supplements %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @feeding.date %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @feeding.notes %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @feeding.value %>
+</p>
+
+<%= link_to 'Edit', edit_feeding_path(@feeding) %> |
+<%= link_to 'Back', feedings_path %>

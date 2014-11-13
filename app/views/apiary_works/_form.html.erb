@@ -1,0 +1,45 @@
+<%= form_for(@apiary_work) do |f| %>
+  <% if @apiary_work.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@apiary_work.errors.count, "error") %> prohibited this apiary_work from being saved:</h2>
+
+      <ul>
+      <% @apiary_work.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :apiary_id %><br>
+    <%= f.text_field :apiary_id %>
+  </div>
+  <div class="field">
+    <%= f.label :hives_id %><br>
+    <%= f.text_field :hives_id %>
+  </div>
+  <div class="field">
+    <%= f.label :work_information_type_id %><br>
+    <%= f.text_field :work_information_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

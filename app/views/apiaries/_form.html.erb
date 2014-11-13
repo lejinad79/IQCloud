@@ -33,14 +33,14 @@
             <div class="control-group">
               <%= f.label :apiary_type_id, :class => 'control-label' %>
               <div class="controls">
-                <%= f.text_field :apiary_type_id, :class => 'form-control' %>
+                <%= f.select :apiary_type_id, ApiaryType.owner(current_beekeeper.current_apiary_id).all.collect { |i| [ i.name, i.id ]  }, :class => 'form-control' %>
               </div>
               <%= error_span(@apiary[:apiary_type_id]) %>
             </div>
             <div class="control-group">
               <%= f.label :apiary_forage_type_id, :class => 'control-label' %>
               <div class="controls">
-                <%= f.text_field :apiary_forage_type_id, :class => 'form-control' %>
+                <%= f.select :apiary_forage_type_id, ApiaryType.owner(current_beekeeper.current_apiary_id).all.collect { |i| [ i.name, i.id ] }, :class => 'form-control' %>
               </div>
               <%= error_span(@apiary[:apiary_forage_type_id]) %>
             </div>

@@ -1,0 +1,39 @@
+<h1>Listing harvests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Beehive</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Quantity</th>
+      <th>Quantity unit</th>
+      <th>Value</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @harvests.each do |harvest| %>
+      <tr>
+        <td><%= harvest.beehive %></td>
+        <td><%= harvest.name %></td>
+        <td><%= harvest.type %></td>
+        <td><%= harvest.quantity %></td>
+        <td><%= harvest.quantity_unit %></td>
+        <td><%= harvest.value %></td>
+        <td><%= harvest.date %></td>
+        <td><%= harvest.description %></td>
+        <td><%= link_to 'Show', harvest %></td>
+        <td><%= link_to 'Edit', edit_harvest_path(harvest) %></td>
+        <td><%= link_to 'Destroy', harvest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Harvest', new_harvest_path %>

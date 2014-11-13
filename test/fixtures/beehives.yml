@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  beehive_type_id: 
+  apiary_id: 
+  group_id: 
+  colony_source_id: 
+  colony_strength: 1
+  colony_quality: 1
+  supers_id: 
+  notes: MyText
+  queen_name: MyString
+  seller_first_name: MyString
+  seller_last_name: MyString
+  place: MyString
+  address: MyString
+  email_address: MyString
+  phone: MyString
+  notes: MyText
+  from_apiary_id: 
+  from_beehive_id: 
+  race: MyString
+  installed: 2014-11-13
+
+two:
+  name: MyString
+  beehive_type_id: 
+  apiary_id: 
+  group_id: 
+  colony_source_id: 
+  colony_strength: 1
+  colony_quality: 1
+  supers_id: 
+  notes: MyText
+  queen_name: MyString
+  seller_first_name: MyString
+  seller_last_name: MyString
+  place: MyString
+  address: MyString
+  email_address: MyString
+  phone: MyString
+  notes: MyText
+  from_apiary_id: 
+  from_beehive_id: 
+  race: MyString
+  installed: 2014-11-13

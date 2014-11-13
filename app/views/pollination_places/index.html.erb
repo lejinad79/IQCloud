@@ -1,0 +1,57 @@
+<h1>Listing pollination_places</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Farmer first name</th>
+      <th>Farmer last name</th>
+      <th>Farm name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Phone</th>
+      <th>Zip</th>
+      <th>Email address</th>
+      <th>Plant</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Description</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Elevation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pollination_places.each do |pollination_place| %>
+      <tr>
+        <td><%= pollination_place.farmer_first_name %></td>
+        <td><%= pollination_place.farmer_last_name %></td>
+        <td><%= pollination_place.farm_name %></td>
+        <td><%= pollination_place.address %></td>
+        <td><%= pollination_place.city %></td>
+        <td><%= pollination_place.state %></td>
+        <td><%= pollination_place.country %></td>
+        <td><%= pollination_place.phone %></td>
+        <td><%= pollination_place.zip %></td>
+        <td><%= pollination_place.email_address %></td>
+        <td><%= pollination_place.plant %></td>
+        <td><%= pollination_place.start_date %></td>
+        <td><%= pollination_place.end_date %></td>
+        <td><%= pollination_place.description %></td>
+        <td><%= pollination_place.latitude %></td>
+        <td><%= pollination_place.longitude %></td>
+        <td><%= pollination_place.elevation %></td>
+        <td><%= link_to 'Show', pollination_place %></td>
+        <td><%= link_to 'Edit', edit_pollination_place_path(pollination_place) %></td>
+        <td><%= link_to 'Destroy', pollination_place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pollination place', new_pollination_place_path %>

@@ -1,0 +1,101 @@
+<%= form_for(@beehive) do |f| %>
+  <% if @beehive.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@beehive.errors.count, "error") %> prohibited this beehive from being saved:</h2>
+
+      <ul>
+      <% @beehive.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :beehive_type_id %><br>
+    <%= f.text_field :beehive_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :apiary_id %><br>
+    <%= f.text_field :apiary_id %>
+  </div>
+  <div class="field">
+    <%= f.label :group_id %><br>
+    <%= f.text_field :group_id %>
+  </div>
+  <div class="field">
+    <%= f.label :colony_source_id %><br>
+    <%= f.text_field :colony_source_id %>
+  </div>
+  <div class="field">
+    <%= f.label :colony_strength %><br>
+    <%= f.number_field :colony_strength %>
+  </div>
+  <div class="field">
+    <%= f.label :colony_quality %><br>
+    <%= f.number_field :colony_quality %>
+  </div>
+  <div class="field">
+    <%= f.label :supers_id %><br>
+    <%= f.text_field :supers_id %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :queen_name %><br>
+    <%= f.text_field :queen_name %>
+  </div>
+  <div class="field">
+    <%= f.label :seller_first_name %><br>
+    <%= f.text_field :seller_first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :seller_last_name %><br>
+    <%= f.text_field :seller_last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :place %><br>
+    <%= f.text_field :place %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :email_address %><br>
+    <%= f.text_field :email_address %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :from_apiary_id %><br>
+    <%= f.text_field :from_apiary_id %>
+  </div>
+  <div class="field">
+    <%= f.label :from_beehive_id %><br>
+    <%= f.text_field :from_beehive_id %>
+  </div>
+  <div class="field">
+    <%= f.label :race %><br>
+    <%= f.text_field :race %>
+  </div>
+  <div class="field">
+    <%= f.label :installed %><br>
+    <%= f.date_select :installed %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

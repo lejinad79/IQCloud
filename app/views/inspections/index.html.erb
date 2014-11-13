@@ -1,0 +1,63 @@
+<h1>Listing inspections</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Beehive</th>
+      <th>Name</th>
+      <th>Society strength</th>
+      <th>The nature of the bees</th>
+      <th>Swarm drive</th>
+      <th>A qulet shift</th>
+      <th>The forced</th>
+      <th>Disease</th>
+      <th>Number of frames with brood</th>
+      <th>Number of frames with honey</th>
+      <th>Number of frames with pollen</th>
+      <th>Quality nut</th>
+      <th>Number of opened broods</th>
+      <th>Number of closed broods</th>
+      <th>Alert info</th>
+      <th>Note info</th>
+      <th>Inspection date</th>
+      <th>Hive condition</th>
+      <th>Firs spring inspection</th>
+      <th>Inspection before winter</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inspections.each do |inspection| %>
+      <tr>
+        <td><%= inspection.beehive %></td>
+        <td><%= inspection.name %></td>
+        <td><%= inspection.society_strength %></td>
+        <td><%= inspection.the_nature_of_the_bees %></td>
+        <td><%= inspection.swarm_drive %></td>
+        <td><%= inspection.a_qulet_shift %></td>
+        <td><%= inspection.the_forced %></td>
+        <td><%= inspection.disease %></td>
+        <td><%= inspection.number_of_frames_with_brood %></td>
+        <td><%= inspection.number_of_frames_with_honey %></td>
+        <td><%= inspection.number_of_frames_with_pollen %></td>
+        <td><%= inspection.quality_nut %></td>
+        <td><%= inspection.number_of_opened_broods %></td>
+        <td><%= inspection.number_of_closed_broods %></td>
+        <td><%= inspection.alert_info %></td>
+        <td><%= inspection.note_info %></td>
+        <td><%= inspection.inspection_date %></td>
+        <td><%= inspection.hive_condition %></td>
+        <td><%= inspection.firs_spring_inspection %></td>
+        <td><%= inspection.inspection_before_winter %></td>
+        <td><%= link_to 'Show', inspection %></td>
+        <td><%= link_to 'Edit', edit_inspection_path(inspection) %></td>
+        <td><%= link_to 'Destroy', inspection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inspection', new_inspection_path %>
