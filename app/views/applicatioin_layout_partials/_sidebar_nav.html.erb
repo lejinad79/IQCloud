@@ -1,0 +1,82 @@
+<li>
+  <%= link_to({:controller => "dashboard", :action => "index"}) do %>
+      <i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+      </li>
+  <% end %>
+  <li class="<%= 'active' if controller?("beehives") %>">
+    <a href="#"><i class="fa fa-files-o fa-fw"></i> Beehives<span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level">
+      <li><%= link_to "List beehives", beehives_path %></li>
+      <li><%= link_to 'New Beehive', new_beehive_path %></li>
+    </ul>
+  </li>
+  <li class="<%= 'active' if controller?("apiaries") %>">
+    <a href="#"><i class="fa fa-files-o fa-fw"></i> Apiaries<span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level">
+      <li><%= link_to "List apiaries", apiaries_path %></li>
+      <li><%= link_to 'New Apiary', new_apiary_path %></li>
+    </ul>
+  </li>
+  <li class="<%= 'active' if controller?("beehive_groups") %>">
+    <a href="#"><i class="fa fa-files-o fa-fw"></i> Beehive groups<span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level">
+      <li><%= link_to "List beehive groups", beehive_groups_path %></li>
+      <li><%= link_to 'New Beehive Group', new_beehive_group_path %></li>
+    </ul>
+  </li>
+  <li class="<%= 'active' if controller?("bad_places") %>">
+    <a href="#"><i class="fa fa-files-o fa-fw"></i> Places where not to go<span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level">
+      <li><%= link_to "List bad places", bad_places_path %></li>
+      <li><%= link_to 'New bad place', new_bad_place_path %></li>
+    </ul>
+  </li>
+  <li class="<%= 'active' if controller?("pollination_places") %>">
+    <a href="#"><i class="fa fa-files-o fa-fw"></i> Places where not to go<span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level">
+      <li><%= link_to "List pollination places", pollination_places_path %></li>
+      <li><%= link_to 'New pollination place', new_pollination_place_path %></li>
+    </ul>
+  </li>
+  <li class="<%= 'active' if controller?("apiary_works") %>">
+    <a href="#"><i class="fa fa-files-o fa-fw"></i> Works on apiary<span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level">
+      <li><%= link_to "List works", apiary_works_path %></li>
+      <li><%= link_to 'New work', new_apiary_work_path %></li>
+    </ul>
+  </li>
+  <li class="<%= 'active' if controller?("inspections") %>">
+    <a href="#"><i class="fa fa-files-o fa-fw"></i> Inspections<span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level">
+      <li><%= link_to "List inspections", inspections_path %></li>
+      <li><%= link_to 'New inspection', new_inspection_path %></li>
+    </ul>
+  </li>
+  <li class="<%= 'active' if controller?("feedings") %>">
+    <a href="#"><i class="fa fa-files-o fa-fw"></i> Feeding<span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level">
+      <li><%= link_to "List feedings", feedings_path %></li>
+      <li><%= link_to 'New feeding', new_feeding_path %></li>
+    </ul>
+  </li>
+  <li class="<%= 'active' if controller?("harvests") %>">
+    <a href="#"><i class="fa fa-files-o fa-fw"></i> Harvest<span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level">
+      <li><%= link_to "List harvests", harvests_path %></li>
+      <li><%= link_to 'New harvest', new_harvest_path %></li>
+    </ul>
+  </li>
+  <li class="<%= 'active' if controller?("economies") %>">
+    <a href="#"><i class="fa fa-files-o fa-fw"></i> Economy<span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level">
+      <li><%= link_to "List economies", economies_path %></li>
+      <li><%= link_to 'New ecoonomy', new_economy_path %></li>
+    </ul>
+  </li>
+  <li class="<%= 'active' if controller?("locations") %>">
+    <a href="#"><i class="fa fa-files-o fa-fw"></i> Location of Forages<span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level">
+      <li><%= link_to "List locations", locations_path %></li>
+      <li><%= link_to 'New location', new_location_path %></li>
+    </ul>
+  </li>

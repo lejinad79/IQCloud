@@ -1,6 +1,5 @@
-<h1>Editing economy</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @economy %> |
-<%= link_to 'Back', economies_path %>
+<%- model_class = Economy -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>

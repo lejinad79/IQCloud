@@ -1,37 +1,48 @@
-<h1>Listing economies</h1>
-
-<table>
+<%- model_class = Economy -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Beehive</th>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Value</th>
-      <th>Date</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:beehive_id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:category_id) %></th>
+      <th><%= model_class.human_attribute_name(:type_id) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:value) %></th>
+      <th><%= model_class.human_attribute_name(:date) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @economies.each do |economy| %>
       <tr>
-        <td><%= economy.beehive %></td>
+        <td><%= link_to economy.id, economy_path(economy) %></td>
+        <td><%= economy.beehive_id %></td>
         <td><%= economy.name %></td>
-        <td><%= economy.category %></td>
-        <td><%= economy.type %></td>
+        <td><%= economy.category_id %></td>
+        <td><%= economy.type_id %></td>
         <td><%= economy.description %></td>
         <td><%= economy.value %></td>
         <td><%= economy.date %></td>
-        <td><%= link_to 'Show', economy %></td>
-        <td><%= link_to 'Edit', edit_economy_path(economy) %></td>
-        <td><%= link_to 'Destroy', economy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l economy.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_economy_path(economy), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      economy_path(economy),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Economy', new_economy_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_economy_path,
+            :class => 'btn btn-primary' %>

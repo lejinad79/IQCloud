@@ -1,43 +1,47 @@
-<h1>Listing inspections</h1>
-
-<table>
+<%- model_class = Inspection -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Beehive</th>
-      <th>Name</th>
-      <th>Society strength</th>
-      <th>The nature of the bees</th>
-      <th>Swarm drive</th>
-      <th>A qulet shift</th>
-      <th>The forced</th>
-      <th>Disease</th>
-      <th>Number of frames with brood</th>
-      <th>Number of frames with honey</th>
-      <th>Number of frames with pollen</th>
-      <th>Quality nut</th>
-      <th>Number of opened broods</th>
-      <th>Number of closed broods</th>
-      <th>Alert info</th>
-      <th>Note info</th>
-      <th>Inspection date</th>
-      <th>Hive condition</th>
-      <th>Firs spring inspection</th>
-      <th>Inspection before winter</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:beehive_id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:society_strength) %></th>
+      <th><%= model_class.human_attribute_name(:the_nature_of_the_bees) %></th>
+      <th><%= model_class.human_attribute_name(:swarm_drive) %></th>
+      <th><%= model_class.human_attribute_name(:a_qulet_shift) %></th>
+      <th><%= model_class.human_attribute_name(:the_forced) %></th>
+      <th><%= model_class.human_attribute_name(:disease_id) %></th>
+      <th><%= model_class.human_attribute_name(:number_of_frames_with_brood) %></th>
+      <th><%= model_class.human_attribute_name(:number_of_frames_with_honey) %></th>
+      <th><%= model_class.human_attribute_name(:number_of_frames_with_pollen) %></th>
+      <th><%= model_class.human_attribute_name(:quality_nut) %></th>
+      <th><%= model_class.human_attribute_name(:number_of_opened_broods) %></th>
+      <th><%= model_class.human_attribute_name(:number_of_closed_broods) %></th>
+      <th><%= model_class.human_attribute_name(:alert_info) %></th>
+      <th><%= model_class.human_attribute_name(:note_info) %></th>
+      <th><%= model_class.human_attribute_name(:inspection_date) %></th>
+      <th><%= model_class.human_attribute_name(:hive_condition) %></th>
+      <th><%= model_class.human_attribute_name(:firs_spring_inspection) %></th>
+      <th><%= model_class.human_attribute_name(:inspection_before_winter) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @inspections.each do |inspection| %>
       <tr>
-        <td><%= inspection.beehive %></td>
+        <td><%= link_to inspection.id, inspection_path(inspection) %></td>
+        <td><%= inspection.beehive_id %></td>
         <td><%= inspection.name %></td>
         <td><%= inspection.society_strength %></td>
         <td><%= inspection.the_nature_of_the_bees %></td>
         <td><%= inspection.swarm_drive %></td>
         <td><%= inspection.a_qulet_shift %></td>
         <td><%= inspection.the_forced %></td>
-        <td><%= inspection.disease %></td>
+        <td><%= inspection.disease_id %></td>
         <td><%= inspection.number_of_frames_with_brood %></td>
         <td><%= inspection.number_of_frames_with_honey %></td>
         <td><%= inspection.number_of_frames_with_pollen %></td>
@@ -50,14 +54,21 @@
         <td><%= inspection.hive_condition %></td>
         <td><%= inspection.firs_spring_inspection %></td>
         <td><%= inspection.inspection_before_winter %></td>
-        <td><%= link_to 'Show', inspection %></td>
-        <td><%= link_to 'Edit', edit_inspection_path(inspection) %></td>
-        <td><%= link_to 'Destroy', inspection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l inspection.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_inspection_path(inspection), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      inspection_path(inspection),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Inspection', new_inspection_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_inspection_path,
+            :class => 'btn btn-primary' %>

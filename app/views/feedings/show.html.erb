@@ -1,49 +1,35 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Feeding -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Beehive:</strong>
-  <%= @feeding.beehive %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:beehive_id) %>:</strong></dt>
+  <dd><%= @feeding.beehive_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @feeding.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:food_type_id) %>:</strong></dt>
+  <dd><%= @feeding.food_type_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:quantity) %>:</strong></dt>
+  <dd><%= @feeding.quantity %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:quantity_unit_id) %>:</strong></dt>
+  <dd><%= @feeding.quantity_unit_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:supplements_id) %>:</strong></dt>
+  <dd><%= @feeding.supplements_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
+  <dd><%= @feeding.date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:notes) %>:</strong></dt>
+  <dd><%= @feeding.notes %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:value) %>:</strong></dt>
+  <dd><%= @feeding.value %></dd>
+</dl>
 
-<p>
-  <strong>Name:</strong>
-  <%= @feeding.name %>
-</p>
-
-<p>
-  <strong>Food type:</strong>
-  <%= @feeding.food_type %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @feeding.quantity %>
-</p>
-
-<p>
-  <strong>Quantity unit:</strong>
-  <%= @feeding.quantity_unit %>
-</p>
-
-<p>
-  <strong>Supplements:</strong>
-  <%= @feeding.supplements %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @feeding.date %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @feeding.notes %>
-</p>
-
-<p>
-  <strong>Value:</strong>
-  <%= @feeding.value %>
-</p>
-
-<%= link_to 'Edit', edit_feeding_path(@feeding) %> |
-<%= link_to 'Back', feedings_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              feedings_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_feeding_path(@feeding), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              feeding_path(@feeding),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

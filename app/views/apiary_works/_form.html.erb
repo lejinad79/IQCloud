@@ -1,45 +1,73 @@
-<%= form_for(@apiary_work) do |f| %>
-  <% if @apiary_work.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@apiary_work.errors.count, "error") %> prohibited this apiary_work from being saved:</h2>
+<%= form_for @apiary_work, :html => { :class => "form-horizontal apiary_work" } do |f| %>
 
-      <ul>
-      <% @apiary_work.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @apiary_work.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@apiary_work.errors.count, "error") %> prohibited this apiary_work from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @apiary_work.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@apiary_work[:name]) %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%= error_span(@apiary_work[:description]) %>
   </div>
-  <div class="field">
-    <%= f.label :notes %><br>
-    <%= f.text_area :notes %>
+  <div class="control-group">
+    <%= f.label :notes, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :notes, :class => 'form-control' %>
+    </div>
+    <%= error_span(@apiary_work[:notes]) %>
   </div>
-  <div class="field">
-    <%= f.label :apiary_id %><br>
-    <%= f.text_field :apiary_id %>
+  <div class="control-group">
+    <%= f.label :apiary_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :apiary_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@apiary_work[:apiary_id]) %>
   </div>
-  <div class="field">
-    <%= f.label :hives_id %><br>
-    <%= f.text_field :hives_id %>
+  <div class="control-group">
+    <%= f.label :hives_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :hives_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@apiary_work[:hives_id]) %>
   </div>
-  <div class="field">
-    <%= f.label :work_information_type_id %><br>
-    <%= f.text_field :work_information_type_id %>
+  <div class="control-group">
+    <%= f.label :work_information_type_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :work_information_type_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@apiary_work[:work_information_type_id]) %>
   </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
+  <div class="control-group">
+    <%= f.label :date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@apiary_work[:date]) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            apiary_works_path, :class => 'btn btn-default' %>
+
 <% end %>

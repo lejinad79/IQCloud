@@ -1,104 +1,57 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Inspection -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Beehive:</strong>
-  <%= @inspection.beehive %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:beehive_id) %>:</strong></dt>
+  <dd><%= @inspection.beehive_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @inspection.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:society_strength) %>:</strong></dt>
+  <dd><%= @inspection.society_strength %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:the_nature_of_the_bees) %>:</strong></dt>
+  <dd><%= @inspection.the_nature_of_the_bees %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:swarm_drive) %>:</strong></dt>
+  <dd><%= @inspection.swarm_drive %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:a_qulet_shift) %>:</strong></dt>
+  <dd><%= @inspection.a_qulet_shift %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:the_forced) %>:</strong></dt>
+  <dd><%= @inspection.the_forced %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:disease_id) %>:</strong></dt>
+  <dd><%= @inspection.disease_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:number_of_frames_with_brood) %>:</strong></dt>
+  <dd><%= @inspection.number_of_frames_with_brood %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:number_of_frames_with_honey) %>:</strong></dt>
+  <dd><%= @inspection.number_of_frames_with_honey %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:number_of_frames_with_pollen) %>:</strong></dt>
+  <dd><%= @inspection.number_of_frames_with_pollen %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:quality_nut) %>:</strong></dt>
+  <dd><%= @inspection.quality_nut %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:number_of_opened_broods) %>:</strong></dt>
+  <dd><%= @inspection.number_of_opened_broods %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:number_of_closed_broods) %>:</strong></dt>
+  <dd><%= @inspection.number_of_closed_broods %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:alert_info) %>:</strong></dt>
+  <dd><%= @inspection.alert_info %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:note_info) %>:</strong></dt>
+  <dd><%= @inspection.note_info %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:inspection_date) %>:</strong></dt>
+  <dd><%= @inspection.inspection_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:hive_condition) %>:</strong></dt>
+  <dd><%= @inspection.hive_condition %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:firs_spring_inspection) %>:</strong></dt>
+  <dd><%= @inspection.firs_spring_inspection %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:inspection_before_winter) %>:</strong></dt>
+  <dd><%= @inspection.inspection_before_winter %></dd>
+</dl>
 
-<p>
-  <strong>Name:</strong>
-  <%= @inspection.name %>
-</p>
-
-<p>
-  <strong>Society strength:</strong>
-  <%= @inspection.society_strength %>
-</p>
-
-<p>
-  <strong>The nature of the bees:</strong>
-  <%= @inspection.the_nature_of_the_bees %>
-</p>
-
-<p>
-  <strong>Swarm drive:</strong>
-  <%= @inspection.swarm_drive %>
-</p>
-
-<p>
-  <strong>A qulet shift:</strong>
-  <%= @inspection.a_qulet_shift %>
-</p>
-
-<p>
-  <strong>The forced:</strong>
-  <%= @inspection.the_forced %>
-</p>
-
-<p>
-  <strong>Disease:</strong>
-  <%= @inspection.disease %>
-</p>
-
-<p>
-  <strong>Number of frames with brood:</strong>
-  <%= @inspection.number_of_frames_with_brood %>
-</p>
-
-<p>
-  <strong>Number of frames with honey:</strong>
-  <%= @inspection.number_of_frames_with_honey %>
-</p>
-
-<p>
-  <strong>Number of frames with pollen:</strong>
-  <%= @inspection.number_of_frames_with_pollen %>
-</p>
-
-<p>
-  <strong>Quality nut:</strong>
-  <%= @inspection.quality_nut %>
-</p>
-
-<p>
-  <strong>Number of opened broods:</strong>
-  <%= @inspection.number_of_opened_broods %>
-</p>
-
-<p>
-  <strong>Number of closed broods:</strong>
-  <%= @inspection.number_of_closed_broods %>
-</p>
-
-<p>
-  <strong>Alert info:</strong>
-  <%= @inspection.alert_info %>
-</p>
-
-<p>
-  <strong>Note info:</strong>
-  <%= @inspection.note_info %>
-</p>
-
-<p>
-  <strong>Inspection date:</strong>
-  <%= @inspection.inspection_date %>
-</p>
-
-<p>
-  <strong>Hive condition:</strong>
-  <%= @inspection.hive_condition %>
-</p>
-
-<p>
-  <strong>Firs spring inspection:</strong>
-  <%= @inspection.firs_spring_inspection %>
-</p>
-
-<p>
-  <strong>Inspection before winter:</strong>
-  <%= @inspection.inspection_before_winter %>
-</p>
-
-<%= link_to 'Edit', edit_inspection_path(@inspection) %> |
-<%= link_to 'Back', inspections_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              inspections_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_inspection_path(@inspection), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              inspection_path(@inspection),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

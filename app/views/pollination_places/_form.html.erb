@@ -1,85 +1,143 @@
-<%= form_for(@pollination_place) do |f| %>
-  <% if @pollination_place.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pollination_place.errors.count, "error") %> prohibited this pollination_place from being saved:</h2>
+<%= form_for @pollination_place, :html => { :class => "form-horizontal pollination_place" } do |f| %>
 
-      <ul>
-      <% @pollination_place.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @pollination_place.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@pollination_place.errors.count, "error") %> prohibited this pollination_place from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @pollination_place.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :farmer_first_name %><br>
-    <%= f.text_field :farmer_first_name %>
+  <div class="control-group">
+    <%= f.label :farmer_first_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :farmer_first_name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollination_place[:farmer_first_name]) %>
   </div>
-  <div class="field">
-    <%= f.label :farmer_last_name %><br>
-    <%= f.text_field :farmer_last_name %>
+  <div class="control-group">
+    <%= f.label :farmer_last_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :farmer_last_name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollination_place[:farmer_last_name]) %>
   </div>
-  <div class="field">
-    <%= f.label :farm_name %><br>
-    <%= f.text_field :farm_name %>
+  <div class="control-group">
+    <%= f.label :farm_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :farm_name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollination_place[:farm_name]) %>
   </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+  <div class="control-group">
+    <%= f.label :address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollination_place[:address]) %>
   </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
+  <div class="control-group">
+    <%= f.label :city, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :city, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollination_place[:city]) %>
   </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
+  <div class="control-group">
+    <%= f.label :state, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :state, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollination_place[:state]) %>
   </div>
-  <div class="field">
-    <%= f.label :country %><br>
-    <%= f.text_field :country %>
+  <div class="control-group">
+    <%= f.label :country, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :country, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollination_place[:country]) %>
   </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
+  <div class="control-group">
+    <%= f.label :phone, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :phone, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollination_place[:phone]) %>
   </div>
-  <div class="field">
-    <%= f.label :zip %><br>
-    <%= f.text_field :zip %>
+  <div class="control-group">
+    <%= f.label :zip, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :zip, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollination_place[:zip]) %>
   </div>
-  <div class="field">
-    <%= f.label :email_address %><br>
-    <%= f.text_field :email_address %>
+  <div class="control-group">
+    <%= f.label :email_address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email_address, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollination_place[:email_address]) %>
   </div>
-  <div class="field">
-    <%= f.label :plant_id %><br>
-    <%= f.text_field :plant_id %>
+  <div class="control-group">
+    <%= f.label :plant_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :plant_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollination_place[:plant_id]) %>
   </div>
-  <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.date_select :start_date %>
+  <div class="control-group">
+    <%= f.label :start_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :start_date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollination_place[:start_date]) %>
   </div>
-  <div class="field">
-    <%= f.label :end_date %><br>
-    <%= f.date_select :end_date %>
+  <div class="control-group">
+    <%= f.label :end_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :end_date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollination_place[:end_date]) %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollination_place[:description]) %>
   </div>
-  <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
+  <div class="control-group">
+    <%= f.label :latitude, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :latitude, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollination_place[:latitude]) %>
   </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
+  <div class="control-group">
+    <%= f.label :longitude, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :longitude, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollination_place[:longitude]) %>
   </div>
-  <div class="field">
-    <%= f.label :elevation %><br>
-    <%= f.text_field :elevation %>
+  <div class="control-group">
+    <%= f.label :elevation, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :elevation, :class => 'form-control' %>
+    </div>
+    <%= error_span(@pollination_place[:elevation]) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            pollination_places_path, :class => 'btn btn-default' %>
+
 <% end %>

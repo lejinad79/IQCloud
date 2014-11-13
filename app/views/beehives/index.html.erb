@@ -1,44 +1,47 @@
-<h1>Listing beehives</h1>
-
-<table>
+<%- model_class = Beehive -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Beehive type</th>
-      <th>Apiary</th>
-      <th>Group</th>
-      <th>Colony source</th>
-      <th>Colony strength</th>
-      <th>Colony quality</th>
-      <th>Supers</th>
-      <th>Notes</th>
-      <th>Queen name</th>
-      <th>Seller first name</th>
-      <th>Seller last name</th>
-      <th>Place</th>
-      <th>Address</th>
-      <th>Email address</th>
-      <th>Phone</th>
-      <th>Notes</th>
-      <th>From apiary</th>
-      <th>From beehive</th>
-      <th>Race</th>
-      <th>Installed</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:beehive_type_id) %></th>
+      <th><%= model_class.human_attribute_name(:apiary_id) %></th>
+      <th><%= model_class.human_attribute_name(:group_id) %></th>
+      <th><%= model_class.human_attribute_name(:colony_source_id) %></th>
+      <th><%= model_class.human_attribute_name(:colony_strength) %></th>
+      <th><%= model_class.human_attribute_name(:colony_quality) %></th>
+      <th><%= model_class.human_attribute_name(:supers_id) %></th>
+      <th><%= model_class.human_attribute_name(:notes) %></th>
+      <th><%= model_class.human_attribute_name(:queen_name) %></th>
+      <th><%= model_class.human_attribute_name(:seller_first_name) %></th>
+      <th><%= model_class.human_attribute_name(:seller_last_name) %></th>
+      <th><%= model_class.human_attribute_name(:place) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:email_address) %></th>
+      <th><%= model_class.human_attribute_name(:phone) %></th>
+      <th><%= model_class.human_attribute_name(:from_apiary_id) %></th>
+      <th><%= model_class.human_attribute_name(:from_beehive_id) %></th>
+      <th><%= model_class.human_attribute_name(:race) %></th>
+      <th><%= model_class.human_attribute_name(:installed) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @beehives.each do |beehive| %>
       <tr>
+        <td><%= link_to beehive.id, beehive_path(beehive) %></td>
         <td><%= beehive.name %></td>
-        <td><%= beehive.beehive_type %></td>
-        <td><%= beehive.apiary %></td>
-        <td><%= beehive.group %></td>
-        <td><%= beehive.colony_source %></td>
+        <td><%= beehive.beehive_type_id %></td>
+        <td><%= beehive.apiary_id %></td>
+        <td><%= beehive.group_id %></td>
+        <td><%= beehive.colony_source_id %></td>
         <td><%= beehive.colony_strength %></td>
         <td><%= beehive.colony_quality %></td>
-        <td><%= beehive.supers %></td>
+        <td><%= beehive.supers_id %></td>
         <td><%= beehive.notes %></td>
         <td><%= beehive.queen_name %></td>
         <td><%= beehive.seller_first_name %></td>
@@ -47,19 +50,25 @@
         <td><%= beehive.address %></td>
         <td><%= beehive.email_address %></td>
         <td><%= beehive.phone %></td>
-        <td><%= beehive.notes %></td>
-        <td><%= beehive.from_apiary %></td>
-        <td><%= beehive.from_beehive %></td>
+        <td><%= beehive.from_apiary_id %></td>
+        <td><%= beehive.from_beehive_id %></td>
         <td><%= beehive.race %></td>
         <td><%= beehive.installed %></td>
-        <td><%= link_to 'Show', beehive %></td>
-        <td><%= link_to 'Edit', edit_beehive_path(beehive) %></td>
-        <td><%= link_to 'Destroy', beehive, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l beehive.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_beehive_path(beehive), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      beehive_path(beehive),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Beehive', new_beehive_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_beehive_path,
+            :class => 'btn btn-primary' %>

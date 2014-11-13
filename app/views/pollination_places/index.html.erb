@@ -1,32 +1,36 @@
-<h1>Listing pollination_places</h1>
-
-<table>
+<%- model_class = PollinationPlace -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Farmer first name</th>
-      <th>Farmer last name</th>
-      <th>Farm name</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Country</th>
-      <th>Phone</th>
-      <th>Zip</th>
-      <th>Email address</th>
-      <th>Plant</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Description</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Elevation</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:farmer_first_name) %></th>
+      <th><%= model_class.human_attribute_name(:farmer_last_name) %></th>
+      <th><%= model_class.human_attribute_name(:farm_name) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:state) %></th>
+      <th><%= model_class.human_attribute_name(:country) %></th>
+      <th><%= model_class.human_attribute_name(:phone) %></th>
+      <th><%= model_class.human_attribute_name(:zip) %></th>
+      <th><%= model_class.human_attribute_name(:email_address) %></th>
+      <th><%= model_class.human_attribute_name(:plant_id) %></th>
+      <th><%= model_class.human_attribute_name(:start_date) %></th>
+      <th><%= model_class.human_attribute_name(:end_date) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:latitude) %></th>
+      <th><%= model_class.human_attribute_name(:longitude) %></th>
+      <th><%= model_class.human_attribute_name(:elevation) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @pollination_places.each do |pollination_place| %>
       <tr>
+        <td><%= link_to pollination_place.id, pollination_place_path(pollination_place) %></td>
         <td><%= pollination_place.farmer_first_name %></td>
         <td><%= pollination_place.farmer_last_name %></td>
         <td><%= pollination_place.farm_name %></td>
@@ -37,21 +41,28 @@
         <td><%= pollination_place.phone %></td>
         <td><%= pollination_place.zip %></td>
         <td><%= pollination_place.email_address %></td>
-        <td><%= pollination_place.plant %></td>
+        <td><%= pollination_place.plant_id %></td>
         <td><%= pollination_place.start_date %></td>
         <td><%= pollination_place.end_date %></td>
         <td><%= pollination_place.description %></td>
         <td><%= pollination_place.latitude %></td>
         <td><%= pollination_place.longitude %></td>
         <td><%= pollination_place.elevation %></td>
-        <td><%= link_to 'Show', pollination_place %></td>
-        <td><%= link_to 'Edit', edit_pollination_place_path(pollination_place) %></td>
-        <td><%= link_to 'Destroy', pollination_place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l pollination_place.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_pollination_place_path(pollination_place), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      pollination_place_path(pollination_place),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Pollination place', new_pollination_place_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_pollination_place_path,
+            :class => 'btn btn-primary' %>

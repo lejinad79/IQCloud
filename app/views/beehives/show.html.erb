@@ -1,109 +1,57 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Beehive -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @beehive.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @beehive.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:beehive_type_id) %>:</strong></dt>
+  <dd><%= @beehive.beehive_type_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:apiary_id) %>:</strong></dt>
+  <dd><%= @beehive.apiary_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:group_id) %>:</strong></dt>
+  <dd><%= @beehive.group_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:colony_source_id) %>:</strong></dt>
+  <dd><%= @beehive.colony_source_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:colony_strength) %>:</strong></dt>
+  <dd><%= @beehive.colony_strength %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:colony_quality) %>:</strong></dt>
+  <dd><%= @beehive.colony_quality %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:supers_id) %>:</strong></dt>
+  <dd><%= @beehive.supers_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:notes) %>:</strong></dt>
+  <dd><%= @beehive.notes %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:queen_name) %>:</strong></dt>
+  <dd><%= @beehive.queen_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:seller_first_name) %>:</strong></dt>
+  <dd><%= @beehive.seller_first_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:seller_last_name) %>:</strong></dt>
+  <dd><%= @beehive.seller_last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:place) %>:</strong></dt>
+  <dd><%= @beehive.place %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @beehive.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email_address) %>:</strong></dt>
+  <dd><%= @beehive.email_address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
+  <dd><%= @beehive.phone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:from_apiary_id) %>:</strong></dt>
+  <dd><%= @beehive.from_apiary_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:from_beehive_id) %>:</strong></dt>
+  <dd><%= @beehive.from_beehive_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:race) %>:</strong></dt>
+  <dd><%= @beehive.race %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:installed) %>:</strong></dt>
+  <dd><%= @beehive.installed %></dd>
+</dl>
 
-<p>
-  <strong>Beehive type:</strong>
-  <%= @beehive.beehive_type %>
-</p>
-
-<p>
-  <strong>Apiary:</strong>
-  <%= @beehive.apiary %>
-</p>
-
-<p>
-  <strong>Group:</strong>
-  <%= @beehive.group %>
-</p>
-
-<p>
-  <strong>Colony source:</strong>
-  <%= @beehive.colony_source %>
-</p>
-
-<p>
-  <strong>Colony strength:</strong>
-  <%= @beehive.colony_strength %>
-</p>
-
-<p>
-  <strong>Colony quality:</strong>
-  <%= @beehive.colony_quality %>
-</p>
-
-<p>
-  <strong>Supers:</strong>
-  <%= @beehive.supers %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @beehive.notes %>
-</p>
-
-<p>
-  <strong>Queen name:</strong>
-  <%= @beehive.queen_name %>
-</p>
-
-<p>
-  <strong>Seller first name:</strong>
-  <%= @beehive.seller_first_name %>
-</p>
-
-<p>
-  <strong>Seller last name:</strong>
-  <%= @beehive.seller_last_name %>
-</p>
-
-<p>
-  <strong>Place:</strong>
-  <%= @beehive.place %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @beehive.address %>
-</p>
-
-<p>
-  <strong>Email address:</strong>
-  <%= @beehive.email_address %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @beehive.phone %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @beehive.notes %>
-</p>
-
-<p>
-  <strong>From apiary:</strong>
-  <%= @beehive.from_apiary %>
-</p>
-
-<p>
-  <strong>From beehive:</strong>
-  <%= @beehive.from_beehive %>
-</p>
-
-<p>
-  <strong>Race:</strong>
-  <%= @beehive.race %>
-</p>
-
-<p>
-  <strong>Installed:</strong>
-  <%= @beehive.installed %>
-</p>
-
-<%= link_to 'Edit', edit_beehive_path(@beehive) %> |
-<%= link_to 'Back', beehives_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              beehives_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_beehive_path(@beehive), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              beehive_path(@beehive),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

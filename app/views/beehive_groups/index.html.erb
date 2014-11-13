@@ -1,41 +1,52 @@
-<h1>Listing beehive_groups</h1>
-
-<table>
+<%- model_class = BeehiveGroup -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Apiary</th>
-      <th>Beehive group type</th>
-      <th>Group type</th>
-      <th>Description</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Elevation</th>
-      <th>Notes</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:apiary_id) %></th>
+      <th><%= model_class.human_attribute_name(:beehive_group_type_id) %></th>
+      <th><%= model_class.human_attribute_name(:group_type_id) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:latitude) %></th>
+      <th><%= model_class.human_attribute_name(:longitude) %></th>
+      <th><%= model_class.human_attribute_name(:elevation) %></th>
+      <th><%= model_class.human_attribute_name(:notes) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @beehive_groups.each do |beehive_group| %>
       <tr>
+        <td><%= link_to beehive_group.id, beehive_group_path(beehive_group) %></td>
         <td><%= beehive_group.name %></td>
-        <td><%= beehive_group.apiary %></td>
-        <td><%= beehive_group.beehive_group_type %></td>
-        <td><%= beehive_group.group_type %></td>
+        <td><%= beehive_group.apiary_id %></td>
+        <td><%= beehive_group.beehive_group_type_id %></td>
+        <td><%= beehive_group.group_type_id %></td>
         <td><%= beehive_group.description %></td>
         <td><%= beehive_group.latitude %></td>
         <td><%= beehive_group.longitude %></td>
         <td><%= beehive_group.elevation %></td>
         <td><%= beehive_group.notes %></td>
-        <td><%= link_to 'Show', beehive_group %></td>
-        <td><%= link_to 'Edit', edit_beehive_group_path(beehive_group) %></td>
-        <td><%= link_to 'Destroy', beehive_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l beehive_group.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_beehive_group_path(beehive_group), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      beehive_group_path(beehive_group),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Beehive group', new_beehive_group_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_beehive_group_path,
+            :class => 'btn btn-primary' %>

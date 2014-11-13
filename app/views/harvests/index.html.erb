@@ -1,39 +1,50 @@
-<h1>Listing harvests</h1>
-
-<table>
+<%- model_class = Harvest -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Beehive</th>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Quantity</th>
-      <th>Quantity unit</th>
-      <th>Value</th>
-      <th>Date</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:beehive_id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:type_id) %></th>
+      <th><%= model_class.human_attribute_name(:quantity) %></th>
+      <th><%= model_class.human_attribute_name(:quantity_unit_id) %></th>
+      <th><%= model_class.human_attribute_name(:value) %></th>
+      <th><%= model_class.human_attribute_name(:date) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @harvests.each do |harvest| %>
       <tr>
-        <td><%= harvest.beehive %></td>
+        <td><%= link_to harvest.id, harvest_path(harvest) %></td>
+        <td><%= harvest.beehive_id %></td>
         <td><%= harvest.name %></td>
-        <td><%= harvest.type %></td>
+        <td><%= harvest.type_id %></td>
         <td><%= harvest.quantity %></td>
-        <td><%= harvest.quantity_unit %></td>
+        <td><%= harvest.quantity_unit_id %></td>
         <td><%= harvest.value %></td>
         <td><%= harvest.date %></td>
         <td><%= harvest.description %></td>
-        <td><%= link_to 'Show', harvest %></td>
-        <td><%= link_to 'Edit', edit_harvest_path(harvest) %></td>
-        <td><%= link_to 'Destroy', harvest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l harvest.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_harvest_path(harvest), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      harvest_path(harvest),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Harvest', new_harvest_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_harvest_path,
+            :class => 'btn btn-primary' %>

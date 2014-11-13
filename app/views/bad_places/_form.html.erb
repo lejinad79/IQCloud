@@ -1,37 +1,59 @@
-<%= form_for(@bad_place) do |f| %>
-  <% if @bad_place.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@bad_place.errors.count, "error") %> prohibited this bad_place from being saved:</h2>
+<%= form_for @bad_place, :html => { :class => "form-horizontal bad_place" } do |f| %>
 
-      <ul>
-      <% @bad_place.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @bad_place.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@bad_place.errors.count, "error") %> prohibited this bad_place from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @bad_place.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@bad_place[:name]) %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%= error_span(@bad_place[:description]) %>
   </div>
-  <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
+  <div class="control-group">
+    <%= f.label :latitude, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :latitude, :class => 'form-control' %>
+    </div>
+    <%= error_span(@bad_place[:latitude]) %>
   </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
+  <div class="control-group">
+    <%= f.label :longitude, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :longitude, :class => 'form-control' %>
+    </div>
+    <%= error_span(@bad_place[:longitude]) %>
   </div>
-  <div class="field">
-    <%= f.label :elevation %><br>
-    <%= f.text_field :elevation %>
+  <div class="control-group">
+    <%= f.label :elevation, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :elevation, :class => 'form-control' %>
+    </div>
+    <%= error_span(@bad_place[:elevation]) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            bad_places_path, :class => 'btn btn-default' %>
+
 <% end %>
