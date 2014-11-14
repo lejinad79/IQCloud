@@ -21,7 +21,7 @@ class ApiaryParametersSetupsController < ApplicationController
 
   def create
     @apiary_parameters_setup = ApiaryParametersSetup.new(apiary_parameters_setup_params)
-    @apiary_parameters_setup.apiary_id = current_beekeeper.current_apiary_id
+    #@apiary_parameters_setup.apiary_id = current_beekeeper.current_apiary_id
     @apiary_parameters_setup.owner_id = current_beekeeper.id
     respond_to do |format|
       if @apiary_parameters_setup.save
@@ -35,21 +35,21 @@ class ApiaryParametersSetupsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
+    #respond_to do |format|
       if @apiary_parameters_setup.update(apiary_parameters_setup_params)
-        i = ApiaryParametersSetup.where(["owner_id = ?", current_beekeeper.id]).last
-        if i == true
+        #i = ApiaryParametersSetup.where(["owner_id = ?", current_beekeeper.id]).last
+        #if i == true
           apiary = Apiary.where(["owner_id = ?", current_beekeeper.id]).last
           redirect_to({:controller => 'apiaries', :action => 'edit', :id => apiary.id})
-        else
-        format.html { redirect_to @apiary_parameters_setup, notice: 'Apiary parameters setup was successfully updated.' }
-        format.json { render :show, status: :ok, location: @apiary_parameters_setup }
-        end
+        #else
+        ##format.html { redirect_to @apiary_parameters_setup, notice: 'Apiary parameters setup was successfully updated.' }
+        ##format.json { render :show, status: :ok, location: @apiary_parameters_setup }
+        #end
       else
-        format.html { render :edit }
-        format.json { render json: @apiary_parameters_setup.errors, status: :unprocessable_entity }
+        ##format.html { render :edit }
+        ##format.json { render json: @apiary_parameters_setup.errors, status: :unprocessable_entity }
       end
-    end
+    ##end
   end
 
   def destroy
@@ -67,7 +67,7 @@ class ApiaryParametersSetupsController < ApplicationController
     end
 
     def apiary_parameters_setup_params
-      params.require(:apiary_parameters_setup).permit(:apiary_id, :owner_id,
+      params.require(:apiary_parameters_setup).permit(:apiary_id,
       beehive_types_attributes: [:id, :name, :apiary_parameters_setup_id, :apiary_id, :_destroy],
       apiary_types_attributes: [:id, :name, :apiary_parameters_setup_id, :apiary_id, :_destroy],
       apiary_forage_types_attributes: [:id, :name, :apiary_parameters_setup_id, :apiary_id, :_destroy],

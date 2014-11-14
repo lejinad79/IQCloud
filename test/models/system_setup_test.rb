@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ApiarySetupTest < ActiveSupport::TestCase
+class SystemSetupTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

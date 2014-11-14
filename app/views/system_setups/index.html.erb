@@ -1,0 +1,29 @@
+<h1>Listing system_setups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Apiary</th>
+      <th>Beekeeper</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @system_setups.each do |system_setup| %>
+      <tr>
+        <td><%= system_setup.name %></td>
+        <td><%= system_setup.apiary %></td>
+        <td><%= system_setup.beekeeper %></td>
+        <td><%= link_to 'Show', system_setup %></td>
+        <td><%= link_to 'Edit', edit_system_setup_path(system_setup) %></td>
+        <td><%= link_to 'Destroy', system_setup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New System setup', new_system_setup_path %>

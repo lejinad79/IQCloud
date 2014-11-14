@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @system_setup.name %>
+</p>
+
+<p>
+  <strong>Apiary:</strong>
+  <%= @system_setup.apiary %>
+</p>
+
+<p>
+  <strong>Beekeeper:</strong>
+  <%= @system_setup.beekeeper %>
+</p>
+
+<%= link_to 'Edit', edit_system_setup_path(@system_setup) %> |
+<%= link_to 'Back', system_setups_path %>

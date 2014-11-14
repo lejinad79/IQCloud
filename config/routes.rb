@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :system_setups
+
   resources :locations
 
   resources :economies
@@ -20,8 +22,6 @@ Rails.application.routes.draw do
   resources :beehives
 
   resources :apiary_parameters_setups
-
-  resources :apiary_setups
 
   resources :apiaries
 

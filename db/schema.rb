@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141113081115) do
+ActiveRecord::Schema.define(version: 20141114073141) do
 
   create_table "apiaries", force: true do |t|
     t.string   "name"
@@ -310,5 +310,16 @@ ActiveRecord::Schema.define(version: 20141113081115) do
   end
 
   add_index "pollination_places", ["plant_id"], name: "index_pollination_places_on_plant_id", using: :btree
+
+  create_table "system_setups", force: true do |t|
+    t.string   "name"
+    t.integer  "apiary_id"
+    t.integer  "beekeeper_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "system_setups", ["apiary_id"], name: "index_system_setups_on_apiary_id", using: :btree
+  add_index "system_setups", ["beekeeper_id"], name: "index_system_setups_on_beekeeper_id", using: :btree
 
 end

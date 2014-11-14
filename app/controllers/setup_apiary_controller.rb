@@ -23,6 +23,7 @@ class SetupApiaryController < ApplicationController
     current_beekeeper.save!
     setup = ApiaryParametersSetup.new
     setup.apiary_id = current_beekeeper.current_apiary.id
+    setup.owner_id = current_beekeeper.id
     setup.save!
   end
 
