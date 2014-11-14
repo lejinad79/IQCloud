@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = SystemSetup -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @system_setup.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @system_setup.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:apiary_id) %>:</strong></dt>
+  <dd><%= @system_setup.apiary_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:beekeeper_id) %>:</strong></dt>
+  <dd><%= @system_setup.beekeeper_id %></dd>
+</dl>
 
-<p>
-  <strong>Apiary:</strong>
-  <%= @system_setup.apiary %>
-</p>
-
-<p>
-  <strong>Beekeeper:</strong>
-  <%= @system_setup.beekeeper %>
-</p>
-
-<%= link_to 'Edit', edit_system_setup_path(@system_setup) %> |
-<%= link_to 'Back', system_setups_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              system_setups_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_system_setup_path(@system_setup), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              system_setup_path(@system_setup),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

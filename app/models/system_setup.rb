@@ -4,9 +4,6 @@ class SystemSetup < ActiveRecord::Base
   before_create :before_System_Setup_Create
   after_create :after_System_Setup_Create
 
-
-
-
   private
 
   def before_System_Setup_Create

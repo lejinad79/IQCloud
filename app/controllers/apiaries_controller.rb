@@ -1,28 +1,20 @@
 class ApiariesController < ApplicationController
   before_action :set_apiary, only: [:show, :edit, :update, :destroy]
 
-  # GET /apiaries
-  # GET /apiaries.json
   def index
-    @apiaries = Apiary.owner(current_beekeeper.id).all
+    @apiaries = Apiary.where(:owner_id => current_beekeeper.id).all
   end
 
-  # GET /apiaries/1
-  # GET /apiaries/1.json
   def show
   end
 
-  # GET /apiaries/new
   def new
     @apiary = Apiary.new
   end
 
-  # GET /apiaries/1/edit
   def edit
   end
 
-  # POST /apiaries
-  # POST /apiaries.json
   def create
     @apiary = Apiary.new(apiary_params)
     @apiary.owner_id = current_beekeeper.id
@@ -37,8 +29,6 @@ class ApiariesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /apiaries/1
-  # PATCH/PUT /apiaries/1.json
   def update
     respond_to do |format|
       if @apiary.update(apiary_params)
@@ -51,8 +41,6 @@ class ApiariesController < ApplicationController
     end
   end
 
-  # DELETE /apiaries/1
-  # DELETE /apiaries/1.json
   def destroy
     @apiary.destroy
     respond_to do |format|
@@ -62,29 +50,23 @@ class ApiariesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_apiary
       @apiary = Apiary.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def apiary_params
       params.require(:apiary).permit(
       :name,
       :apiary_type_id,
       :apiary_forage_type_id,
       :description,
-      :map_id,
-      map_attributes:
-      [
-        :id,
-        :latitude,
-        :longitude,
-        :elevation,
-        :notes,
-        :mapable_id,
-        :mapable_type
-      ]
+      :created_at,
+      :updated_at,
+      :owner_id,
+      :latitude,
+      :longitude,
+      :notes
       )
     end
 end

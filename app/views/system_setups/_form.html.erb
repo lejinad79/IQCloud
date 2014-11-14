@@ -1,22 +1,45 @@
-<%= Beekeeper.current %>
-<%= form_for(@system_setup) do |f| %>
-  <% if @system_setup.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@system_setup.errors.count, "error") %> prohibited this system_setup from being saved:</h2>
+<%= form_for @system_setup, :html => { :class => "form-horizontal system_setup" } do |f| %>
 
-      <ul>
-      <% @system_setup.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @system_setup.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@system_setup.errors.count, "error") %> prohibited this system_setup from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @system_setup.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@system_setup[:name]) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="control-group">
+    <%= f.label :apiary_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :apiary_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@system_setup[:apiary_id]) %>
   </div>
+  <div class="control-group">
+    <%= f.label :beekeeper_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :beekeeper_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@system_setup[:beekeeper_id]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            system_setups_path, :class => 'btn btn-default' %>
+
 <% end %>

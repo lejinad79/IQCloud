@@ -12,6 +12,7 @@
         <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:id) %></th>
+          <th>Change</th>
           <th><%= model_class.human_attribute_name(:name) %></th>
           <th><%= model_class.human_attribute_name(:apiary_type_id) %></th>
           <th><%= model_class.human_attribute_name(:apiary_forage_type_id) %></th>
@@ -23,6 +24,7 @@
         <% @apiaries.each do |apiary| %>
             <tr>
               <td><%= link_to apiary.id, apiary_path(apiary) %></td>
+              <td><%= link_to("Change", {:controller => 'change_current_apiary', :action => 'change_current_apiary', :pid => apiary.id, :method => 'post'}) %></td>
               <td><%= apiary.name %></td>
               <% if apiary.apiary_type.blank? %>
                   <td>
