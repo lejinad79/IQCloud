@@ -1,10 +1,21 @@
 class SystemSetup < ActiveRecord::Base
   belongs_to :apiary
   belongs_to :beekeeper
-  before_create :before_System_Setup_Create
-  after_create :after_System_Setup_Create
+
+  if Beekeeper.count == 1
+
+    else
+
+      before_create :before_System_Setup_Create
+      after_create :after_System_Setup_Create
+
+  end
+
+  #before_create :before_System_Setup_Create
+  #after_create :after_System_Setup_Create
 
   private
+
 
   def before_System_Setup_Create
 

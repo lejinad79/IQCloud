@@ -1,6 +1,7 @@
 class SystemSetupsController < ApplicationController
   before_action :set_system_setup, only: [:show, :edit, :update, :destroy]
   before_filter :set_current_beekeeper_id
+  before_filter :set_current_beekeeper_count
 
   def index
     @system_setups = SystemSetup.where(:beekeeper_id => current_beekeeper.id).all

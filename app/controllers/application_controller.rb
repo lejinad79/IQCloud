@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
     Beekeeper.current = current_beekeeper.id
   end
 
+  def set_current_beekeeper_count
+    Beekeeper.count = current_beekeeper.sign_in_count
+  end
+
 end
