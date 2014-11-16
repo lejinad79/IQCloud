@@ -1,7 +1,7 @@
 class SystemSetupsController < ApplicationController
   before_action :set_system_setup, only: [:show, :edit, :update, :destroy]
   before_filter :set_current_beekeeper_id
-  before_filter :set_current_beekeeper_count
+  before_filter :set_current_beekeeper_current_apiary_id
 
   def index
     @system_setups = SystemSetup.where(:beekeeper_id => current_beekeeper.id).all
@@ -64,7 +64,7 @@ class SystemSetupsController < ApplicationController
     end
 
     def redirect_To_Apiary
-      apiary = Apiary.where(:owner_id => current_beekeeper.id).last
+      apiary = Apiary.where("owner_id LIKE '%?'", current_beekeeper.id).last
       redirect_to edit_apiary_path(apiary.id)
     end
 

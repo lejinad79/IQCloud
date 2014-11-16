@@ -13,6 +13,9 @@ end
 group :development do
   gem 'spring'
   gem 'mysql2'
+  gem "better_errors"
+  gem "binding_of_caller"
+  #gem 'rack-mini-profiler'
   #gem 'jazz_hands'
 end
 group :production do

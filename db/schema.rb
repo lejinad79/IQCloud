@@ -55,14 +55,6 @@ ActiveRecord::Schema.define(version: 20141114073141) do
   add_index "apiary_parameters_setups", ["apiary_id"], name: "index_apiary_parameters_setups_on_apiary_id", using: :btree
   add_index "apiary_parameters_setups", ["owner_id"], name: "index_apiary_parameters_setups_on_owner_id", using: :btree
 
-  create_table "apiary_setups", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "apiary_id"
-  end
-
-  add_index "apiary_setups", ["apiary_id"], name: "index_apiary_setups_on_apiary_id", using: :btree
-
   create_table "apiary_types", force: true do |t|
     t.string   "name"
     t.datetime "created_at"

@@ -18,13 +18,10 @@ class SetupApiaryController < ApplicationController
     @apiary.beekeepers << @beekeeper
     @apiary.owner_id = current_beekeeper.id
     render_wizard @apiary
-    apiary = Apiary.where(["owner_id = ?", current_beekeeper.id]).last
+    apiary = Apiary.where(:owner_id => current_beekeeper.id).take
     current_beekeeper.current_apiary_id = apiary.id
     current_beekeeper.save!
-    setup = SystemSetup.new
-    setup.apiary_id = apiary.id
-    setup.beekeeper_id = current_beekeeper.id
-    setup.save!
+    #Apiary.where(["owner_id ?", ""]).destroy_all
   end
 
   private
@@ -34,8 +31,13 @@ class SetupApiaryController < ApplicationController
   end
 
   def finish_wizard_path
-    setup = SystemSetup.where(["apiary_id = ?", current_beekeeper.current_apiary.id]).last
-    edit_system_setup_path(setup.id)
+    setup = SystemSetup.new
+    setup.apiary_id = current_beekeeper.current_apiary_id
+    setup.beekeeper_id = current_beekeeper.id
+    setup.save!
+    s = SystemSetup.where(:apiary_id => current_beekeeper.current_apiary_id).last
+    #r = s.id - 1
+    edit_system_setup_path(s.id)
   end
 
 end

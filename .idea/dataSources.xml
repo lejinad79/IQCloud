@@ -5,8 +5,6 @@
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://127.0.0.1/dev</jdbc-url>
-      <user-name>poostgres</user-name>
-      <user-password>df9bdf92df93df9bdf93df92df9b</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails IQCloud: test" uuid="88b36a2d-d646-47f4-8ca7-63572f4e015d">
@@ -19,10 +17,7 @@
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql:d47c9dn4n5qnv7</jdbc-url>
-      <user-name>uthowfuewohmja</user-name>
-      <user-password>dfc8dfdddfcddfdcdfe2dfffdfe5df99dfe5dfe2dfd3dfeedfcfdfe8dfffdf98dff3dff2dfffdfcbdfe0dfe8dfc5dfdddf9edfd8</user-password>
       <libraries />
     </data-source>
   </component>
 </project>
-

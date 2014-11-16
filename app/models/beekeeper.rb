@@ -20,11 +20,11 @@ class Beekeeper < ActiveRecord::Base
     Thread.current[:beekeeper] = beekeeper
   end
 
-  def self.count
+  def self.current_apiary
     Thread.current[:beekeeper]
   end
 
-  def self.count=(beekeeper)
+  def self.current_apiary=(beekeeper)
     Thread.current[:beekeeper] = beekeeper
   end
 
