@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141114073141) do
+ActiveRecord::Schema.define(version: 20141118122436) do
+
+  create_table "activities", force: true do |t|
+    t.string   "name"
+    t.integer  "apiary_id"
+    t.integer  "system_setup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activities", ["apiary_id"], name: "index_activities_on_apiary_id", using: :btree
 
   create_table "apiaries", force: true do |t|
     t.string   "name"
@@ -41,6 +51,7 @@ ActiveRecord::Schema.define(version: 20141114073141) do
     t.datetime "updated_at"
     t.integer  "apiary_id"
     t.integer  "apiary_parameters_setup_id"
+    t.integer  "system_setup_id"
   end
 
   add_index "apiary_forage_types", ["apiary_id"], name: "index_apiary_forage_types_on_apiary_id", using: :btree
@@ -61,6 +72,7 @@ ActiveRecord::Schema.define(version: 20141114073141) do
     t.datetime "updated_at"
     t.integer  "apiary_id"
     t.integer  "apiary_parameters_setup_id"
+    t.integer  "system_setup_id"
   end
 
   add_index "apiary_types", ["apiary_id"], name: "index_apiary_types_on_apiary_id", using: :btree
@@ -97,6 +109,7 @@ ActiveRecord::Schema.define(version: 20141114073141) do
     t.integer  "apiary_parameters_setup_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "system_setup_id"
   end
 
   add_index "beehive_group_types", ["apiary_id"], name: "index_beehive_group_types_on_apiary_id", using: :btree
@@ -125,6 +138,7 @@ ActiveRecord::Schema.define(version: 20141114073141) do
     t.integer  "apiary_parameters_setup_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "system_setup_id"
   end
 
   add_index "beehive_types", ["apiary_id"], name: "index_beehive_types_on_apiary_id", using: :btree
@@ -183,6 +197,36 @@ ActiveRecord::Schema.define(version: 20141114073141) do
   add_index "beekeepers", ["email"], name: "index_beekeepers_on_email", unique: true, using: :btree
   add_index "beekeepers", ["reset_password_token"], name: "index_beekeepers_on_reset_password_token", unique: true, using: :btree
 
+  create_table "colony_sources", force: true do |t|
+    t.string   "name"
+    t.integer  "apiary_id"
+    t.integer  "system_setup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "colony_sources", ["apiary_id"], name: "index_colony_sources_on_apiary_id", using: :btree
+
+  create_table "currencies", force: true do |t|
+    t.string   "name"
+    t.integer  "apiary_id"
+    t.integer  "system_setup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "currencies", ["apiary_id"], name: "index_currencies_on_apiary_id", using: :btree
+
+  create_table "diseases", force: true do |t|
+    t.string   "name"
+    t.integer  "apiary_id"
+    t.integer  "system_setup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "diseases", ["apiary_id"], name: "index_diseases_on_apiary_id", using: :btree
+
   create_table "economies", force: true do |t|
     t.integer  "beehive_id"
     t.string   "name"
@@ -217,6 +261,26 @@ ActiveRecord::Schema.define(version: 20141114073141) do
   add_index "feedings", ["food_type_id"], name: "index_feedings_on_food_type_id", using: :btree
   add_index "feedings", ["quantity_unit_id"], name: "index_feedings_on_quantity_unit_id", using: :btree
   add_index "feedings", ["supplements_id"], name: "index_feedings_on_supplements_id", using: :btree
+
+  create_table "food_types", force: true do |t|
+    t.string   "name"
+    t.integer  "apiary_id"
+    t.integer  "system_setup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "food_types", ["apiary_id"], name: "index_food_types_on_apiary_id", using: :btree
+
+  create_table "harvest_types", force: true do |t|
+    t.string   "name"
+    t.integer  "apiary_id"
+    t.integer  "system_setup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "harvest_types", ["apiary_id"], name: "index_harvest_types_on_apiary_id", using: :btree
 
   create_table "harvests", force: true do |t|
     t.integer  "beehive_id"
@@ -263,6 +327,16 @@ ActiveRecord::Schema.define(version: 20141114073141) do
   add_index "inspections", ["beehive_id"], name: "index_inspections_on_beehive_id", using: :btree
   add_index "inspections", ["disease_id"], name: "index_inspections_on_disease_id", using: :btree
 
+  create_table "lengths", force: true do |t|
+    t.string   "name"
+    t.integer  "apiary_id"
+    t.integer  "system_setup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lengths", ["apiary_id"], name: "index_lengths_on_apiary_id", using: :btree
+
   create_table "locations", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -278,6 +352,16 @@ ActiveRecord::Schema.define(version: 20141114073141) do
 
   add_index "locations", ["country_id"], name: "index_locations_on_country_id", using: :btree
   add_index "locations", ["forages_id"], name: "index_locations_on_forages_id", using: :btree
+
+  create_table "plants", force: true do |t|
+    t.string   "name"
+    t.integer  "apiary_id"
+    t.integer  "system_setup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "plants", ["apiary_id"], name: "index_plants_on_apiary_id", using: :btree
 
   create_table "pollination_places", force: true do |t|
     t.string   "farmer_first_name"
@@ -303,6 +387,16 @@ ActiveRecord::Schema.define(version: 20141114073141) do
 
   add_index "pollination_places", ["plant_id"], name: "index_pollination_places_on_plant_id", using: :btree
 
+  create_table "supplements", force: true do |t|
+    t.string   "name"
+    t.integer  "apiary_id"
+    t.integer  "system_setup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "supplements", ["apiary_id"], name: "index_supplements_on_apiary_id", using: :btree
+
   create_table "system_setups", force: true do |t|
     t.string   "name"
     t.integer  "apiary_id"
@@ -313,5 +407,25 @@ ActiveRecord::Schema.define(version: 20141114073141) do
 
   add_index "system_setups", ["apiary_id"], name: "index_system_setups_on_apiary_id", using: :btree
   add_index "system_setups", ["beekeeper_id"], name: "index_system_setups_on_beekeeper_id", using: :btree
+
+  create_table "temperatures", force: true do |t|
+    t.string   "name"
+    t.integer  "apiary_id"
+    t.integer  "system_setup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "temperatures", ["apiary_id"], name: "index_temperatures_on_apiary_id", using: :btree
+
+  create_table "weights", force: true do |t|
+    t.string   "name"
+    t.integer  "apiary_id"
+    t.integer  "system_setup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "weights", ["apiary_id"], name: "index_weights_on_apiary_id", using: :btree
 
 end

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="129317174">
+  <component name="DataSourceManagerImpl" format="xml" hash="1486348123">
     <data-source source="LOCAL" name="Rails IQCloud: development" uuid="1f531ab3-46da-477c-bb96-54c490fc0526">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

@@ -4,4 +4,5 @@ class Apiary < ActiveRecord::Base
   belongs_to :owner, :class_name => Beekeeper
   has_one :system_setup
   has_and_belongs_to_many :beekeepers
+  scope :owner, -> (v) { where(:owner_id => v) }
 end

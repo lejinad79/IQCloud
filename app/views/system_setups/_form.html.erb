@@ -1,45 +1,86 @@
-<%= form_for @system_setup, :html => { :class => "form-horizontal system_setup" } do |f| %>
+<div class="row">
+  <div class="col-md-8">
+    <%= nested_form_for @system_setup, :html => {:class => "form-horizontal system_setup"} do |f| %>
 
-    <% if @system_setup.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@system_setup.errors.count, "error") %> prohibited this system_setup from being saved:</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-        <% @system_setup.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+        <% if @system_setup.errors.any? %>
+            <div id="error_expl" class="panel panel-danger">
+              <div class="panel-heading">
+                <h3 class="panel-title"><%= pluralize(@system_setup.errors.count, "error") %> prohibited this
+                  system_setup from being saved:</h3>
+              </div>
+              <div class="panel-body">
+                <ul>
+                  <% @system_setup.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
         <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
 
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'form-control' %>
-    </div>
-    <%= error_span(@system_setup[:name]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :apiary_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :apiary_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@system_setup[:apiary_id]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :beekeeper_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :beekeeper_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@system_setup[:beekeeper_id]) %>
-  </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Panel title</h3>
+          </div>
+          <div class="panel-body">
+            <div class="control-group">
+              <%= f.label :name, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :name, :class => 'form-control' %>
+              </div>
+              <%= error_span(@system_setup[:name]) %>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Beehive types:</h3>
+          </div>
+          <div class="panel-body">
+            <%= render :partial => 'parameters_setup_partials/beehive_types', :locals => {:f => f} %>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Apiary types:</h3>
+          </div>
+          <div class="panel-body">
+            <%= render :partial => 'parameters_setup_partials/apiary_types', :locals => {:f => f} %>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Apiary forage types:</h3>
+          </div>
+          <div class="panel-body">
+            <%= render :partial => 'parameters_setup_partials/apiary_forage_types', :locals => {:f => f} %>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Beehive group types:</h3>
+          </div>
+          <div class="panel-body">
+            <%= render :partial => 'parameters_setup_partials/beehive_group_types', :locals => {:f => f} %>
+          </div>
+        </div>
 
 
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            system_setups_path, :class => 'btn btn-default' %>
 
-<% end %>
+
+
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                    system_setups_path, :class => 'btn btn-default' %>
+
+
+        </div>
+        <div class="col-md-4">
+
+        </div>
+        </div>
+    <% end %>
