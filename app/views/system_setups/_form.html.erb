@@ -38,7 +38,7 @@
             <h3 class="panel-title">Beehive types:</h3>
           </div>
           <div class="panel-body">
-            <%= render :partial => 'parameters_setup_partials/beehive_types', :locals => {:f => f} %>
+            <%#= render :partial => 'parameters_setup_partials/beehive_types', :locals => {:f => f} %>
           </div>
         </div>
 
@@ -56,7 +56,7 @@
             <h3 class="panel-title">Apiary forage types:</h3>
           </div>
           <div class="panel-body">
-            <%= render :partial => 'parameters_setup_partials/apiary_forage_types', :locals => {:f => f} %>
+            <%#= render :partial => 'parameters_setup_partials/apiary_forage_types', :locals => {:f => f} %>
           </div>
         </div>
 
@@ -65,7 +65,7 @@
             <h3 class="panel-title">Beehive group types:</h3>
           </div>
           <div class="panel-body">
-            <%= render :partial => 'parameters_setup_partials/beehive_group_types', :locals => {:f => f} %>
+            <%#= render :partial => 'parameters_setup_partials/beehive_group_types', :locals => {:f => f} %>
           </div>
         </div>
 
@@ -73,9 +73,7 @@
 
 
 
-        <%= f.submit nil, :class => 'btn btn-primary' %>
-        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                    system_setups_path, :class => 'btn btn-default' %>
+
 
 
         </div>
@@ -83,4 +81,10 @@
 
         </div>
         </div>
+
+
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                    system_setups_path, :class => 'btn btn-default' %>
+
     <% end %>

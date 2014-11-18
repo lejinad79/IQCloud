@@ -1,5 +1,6 @@
 class BeehiveType < ActiveRecord::Base
   belongs_to :apiary
+  belongs_to :system_setup
   scope :owner, -> (v) { where(:apiary_id => v) }
 
   after_save :after_Beehive_Type
