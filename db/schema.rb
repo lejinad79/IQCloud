@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118122436) do
+ActiveRecord::Schema.define(version: 20141118182121) do
 
   create_table "activities", force: true do |t|
     t.string   "name"
@@ -55,16 +55,6 @@ ActiveRecord::Schema.define(version: 20141118122436) do
   end
 
   add_index "apiary_forage_types", ["apiary_id"], name: "index_apiary_forage_types_on_apiary_id", using: :btree
-
-  create_table "apiary_parameters_setups", force: true do |t|
-    t.integer  "apiary_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "owner_id"
-  end
-
-  add_index "apiary_parameters_setups", ["apiary_id"], name: "index_apiary_parameters_setups_on_apiary_id", using: :btree
-  add_index "apiary_parameters_setups", ["owner_id"], name: "index_apiary_parameters_setups_on_owner_id", using: :btree
 
   create_table "apiary_types", force: true do |t|
     t.string   "name"
@@ -386,6 +376,16 @@ ActiveRecord::Schema.define(version: 20141118122436) do
   end
 
   add_index "pollination_places", ["plant_id"], name: "index_pollination_places_on_plant_id", using: :btree
+
+  create_table "supers", force: true do |t|
+    t.string   "name"
+    t.integer  "apiary_id"
+    t.integer  "system_setup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "supers", ["apiary_id"], name: "index_supers_on_apiary_id", using: :btree
 
   create_table "supplements", force: true do |t|
     t.string   "name"

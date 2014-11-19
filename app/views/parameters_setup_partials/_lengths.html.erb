@@ -1,0 +1,9 @@
+<%= f.fields_for :lengths do |v| %>
+    <table class="table table-striped">
+      <tr>
+        <td><%= v.text_field :name, :class => 'form-control', :placeholder => 'Length' %></td>
+        <td><%= v.link_to_remove "Remove", :class => 'btn btn-danger' %></td>
+      </tr>
+    </table>
+<% end %>
+<p><%= f.link_to_add "Add", :lengths, :class => 'btn btn-primary' %></p>

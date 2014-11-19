@@ -13,8 +13,8 @@ end
 group :development do
   gem 'spring'
   gem 'mysql2'
-  #gem "better_errors"
-  #gem "binding_of_caller"
+  gem "better_errors"
+  gem "binding_of_caller"
   #gem 'rack-mini-profiler'
   #gem 'jazz_hands'
 end
@@ -39,5 +39,4 @@ gem "twitter-bootstrap-rails"
 gem 'jquery-turbolinks'
 gem 'wicked'
 gem "nested_form"
-gem 'postgres_ext'
 gem 'jquery-datatables-rails', '~> 3.0.0'

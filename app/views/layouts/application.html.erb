@@ -33,7 +33,7 @@
       <a class="navbar-brand" href="index.html">Beekeepers Cloud v1.0</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><%= link_to("Your current apiary is: #{current_beekeeper.current_apiary.name} change", {:controller => 'apiaries', :action => 'index'})%></li>
+      <li><%= link_to("Your current apiary is: #{current_beekeeper.current_apiary.id} change", {:controller => 'apiaries', :action => 'index'})%></li>
     </ul>
     <ul class="nav navbar-top-links navbar-right">
       <%= render :partial => 'applicatioin_layout_partials/top_right_nav' %>

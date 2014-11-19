@@ -21,8 +21,6 @@ Rails.application.routes.draw do
 
   resources :beehives
 
-  resources :apiary_parameters_setups
-
   resources :apiaries
 
   resources :setup_apiary

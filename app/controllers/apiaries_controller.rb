@@ -10,6 +10,7 @@ class ApiariesController < ApplicationController
 
   def new
     @apiary = Apiary.new
+    @apiaries = Apiary.where(:owner_id => current_beekeeper.id).all
   end
 
   def edit

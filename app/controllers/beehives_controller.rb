@@ -4,7 +4,7 @@ class BeehivesController < ApplicationController
   # GET /beehives
   # GET /beehives.json
   def index
-    @beehives = Beehive.all
+    @beehives = Beehive.where(:apiary_id => current_beekeeper.current_apiary_id).all
   end
 
   # GET /beehives/1
@@ -25,7 +25,7 @@ class BeehivesController < ApplicationController
   # POST /beehives.json
   def create
     @beehive = Beehive.new(beehive_params)
-
+    @beehive.apiary_id = current_beekeeper.current_apiary_id
     respond_to do |format|
       if @beehive.save
         format.html { redirect_to @beehive, notice: 'Beehive was successfully created.' }

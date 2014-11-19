@@ -1,28 +1,30 @@
-<div class="row">
-  <div class="col-md-8">
-    <%= nested_form_for @system_setup, :html => {:class => "form-horizontal system_setup"} do |f| %>
+<%= nested_form_for @system_setup, :html => {:class => "form-horizontal system_setup"} do |f| %>
 
-        <% if @system_setup.errors.any? %>
-            <div id="error_expl" class="panel panel-danger">
-              <div class="panel-heading">
-                <h3 class="panel-title"><%= pluralize(@system_setup.errors.count, "error") %> prohibited this
-                  system_setup from being saved:</h3>
-              </div>
-              <div class="panel-body">
-                <ul>
-                  <% @system_setup.errors.full_messages.each do |msg| %>
-                      <li><%= msg %></li>
-                  <% end %>
-                </ul>
-              </div>
-            </div>
-        <% end %>
-
-        <div class="panel panel-default">
+    <% if @system_setup.errors.any? %>
+        <div id="error_expl" class="panel panel-danger">
           <div class="panel-heading">
-            <h3 class="panel-title">Panel title</h3>
+            <h3 class="panel-title"><%= pluralize(@system_setup.errors.count, "error") %> prohibited this
+              system_setup from being saved:</h3>
           </div>
           <div class="panel-body">
+            <ul>
+              <% @system_setup.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    <% end %>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Panel title</h3>
+      </div>
+      <div class="panel-body">
+
+        <div class="row">
+          <div class="col-md-8">
+
             <div class="control-group">
               <%= f.label :name, :class => 'control-label' %>
               <div class="controls">
@@ -30,61 +32,123 @@
               </div>
               <%= error_span(@system_setup[:name]) %>
             </div>
+
+            <div id="levo">
+              <h3>Beehive types</h3>
+
+              <div>
+                <%= render :partial => 'parameters_setup_partials/beehive_types', :locals => {:f => f} %>
+              </div>
+              <h3>Apiary types</h3>
+
+              <div>
+                <%= render :partial => 'parameters_setup_partials/apiary_types', :locals => {:f => f} %>
+              </div>
+              <h3>Apiary forage types</h3>
+
+              <div>
+                <%= render :partial => 'parameters_setup_partials/apiary_forage_types', :locals => {:f => f} %>
+              </div>
+              <h3>Beehive group types</h3>
+
+              <div>
+                <%= render :partial => 'parameters_setup_partials/beehive_group_types', :locals => {:f => f} %>
+              </div>
+              <h3>Plants</h3>
+
+              <div>
+                <%= render :partial => 'parameters_setup_partials/plants', :locals => {:f => f} %>
+
+              </div>
+              <h3>Diseases</h3>
+
+              <div>
+                <%= render :partial => 'parameters_setup_partials/diseases', :locals => {:f => f} %>
+
+              </div>
+              <h3>Harvest types</h3>
+
+              <div>
+                <%= render :partial => 'parameters_setup_partials/harvest_types', :locals => {:f => f} %>
+
+              </div>
+              <h3>Food types</h3>
+
+              <div>
+                <%= render :partial => 'parameters_setup_partials/food_types', :locals => {:f => f} %>
+
+              </div>
+              <h3>Supplements</h3>
+
+              <div>
+                <%= render :partial => 'parameters_setup_partials/supplements', :locals => {:f => f} %>
+
+              </div>
+              <h3>Colony sources</h3>
+
+              <div>
+                <%= render :partial => 'parameters_setup_partials/colony_sources', :locals => {:f => f} %>
+
+              </div>
+
+              <h3>Supers</h3>
+
+              <div>
+                <%= render :partial => 'parameters_setup_partials/supers', :locals => {:f => f} %>
+
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col-md-4">
+
+            <div id="desno">
+              <h3>Activities</h3>
+
+              <div>
+                <%= render :partial => 'parameters_setup_partials/activities', :locals => {:f => f} %>
+
+              </div>
+              <h3>Temperatures</h3>
+
+              <div>
+                <%= render :partial => 'parameters_setup_partials/temperatures', :locals => {:f => f} %>
+
+              </div>
+              <h3>Lengths</h3>
+
+              <div>
+                <%= render :partial => 'parameters_setup_partials/lengths', :locals => {:f => f} %>
+
+              </div>
+              <h3>Weigths</h3>
+
+              <div>
+                <%= render :partial => 'parameters_setup_partials/weigths', :locals => {:f => f} %>
+
+              </div>
+              <h3>Currencies</h3>
+
+              <div>
+                <%= render :partial => 'parameters_setup_partials/currencies', :locals => {:f => f} %>
+
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Beehive types:</h3>
-          </div>
-          <div class="panel-body">
-            <%#= render :partial => 'parameters_setup_partials/beehive_types', :locals => {:f => f} %>
-          </div>
-        </div>
+      </div>
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Apiary types:</h3>
-          </div>
-          <div class="panel-body">
-            <%= render :partial => 'parameters_setup_partials/apiary_types', :locals => {:f => f} %>
-          </div>
-        </div>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Apiary forage types:</h3>
-          </div>
-          <div class="panel-body">
-            <%#= render :partial => 'parameters_setup_partials/apiary_forage_types', :locals => {:f => f} %>
-          </div>
-        </div>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Beehive group types:</h3>
-          </div>
-          <div class="panel-body">
-            <%#= render :partial => 'parameters_setup_partials/beehive_group_types', :locals => {:f => f} %>
-          </div>
-        </div>
-
-
-
-
-
-
-
-
-        </div>
-        <div class="col-md-4">
-
-        </div>
-        </div>
-
+      <div class="panel-footer">
 
         <%= f.submit nil, :class => 'btn btn-primary' %>
         <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                     system_setups_path, :class => 'btn btn-default' %>
+<% end %>
 
-    <% end %>
+</div>
+
+</div>
+

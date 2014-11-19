@@ -1,0 +1,9 @@
+<%= f.fields_for :colony_sources do |v| %>
+    <table class="table table-striped">
+      <tr>
+        <td><%= v.text_field :name, :class => 'form-control', :placeholder => 'Colony source' %></td>
+        <td><%= v.link_to_remove "Remove", :class => 'btn btn-danger' %></td>
+      </tr>
+    </table>
+<% end %>
+<p><%= f.link_to_add "Add", :colony_sources, :class => 'btn btn-primary' %></p>

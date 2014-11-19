@@ -1,0 +1,9 @@
+<%= f.fields_for :harvest_types do |v| %>
+    <table class="table table-striped">
+      <tr>
+        <td><%= v.text_field :name, :class => 'form-control', :placeholder => 'Harvest type' %></td>
+        <td><%= v.link_to_remove "Remove", :class => 'btn btn-danger' %></td>
+      </tr>
+    </table>
+<% end %>
+<p><%= f.link_to_add "Add", :harvest_types, :class => 'btn btn-primary' %></p>

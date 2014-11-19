@@ -15,10 +15,21 @@ class SystemSetupsController < ApplicationController
     @system_setup.apiary_types.build
     @system_setup.apiary_forage_types.build
     @system_setup.beehive_group_types.build
+    @system_setup.plants.build
+    @system_setup.diseases.build
+    @system_setup.harvest_types.build
+    @system_setup.food_types.build
+    @system_setup.supplements.build
+    @system_setup.colony_sources.build
+    @system_setup.activities.build
+    @system_setup.temperatures.build
+    @system_setup.lengths.build
+    @system_setup.weights.build
+    @system_setup.currencies.build
+    @system_setup.supers
   end
 
   def edit
-    @system_setup = SystemSetup.find(params[:id])
   end
 
   def create
@@ -41,15 +52,14 @@ class SystemSetupsController < ApplicationController
   def update
 
     #respond_to do |format|
-    @system_setup = SystemSetup.find(params[:id])
-      if @system_setup.update(system_setup_params)
-        redirect_To_Apiary
-        #format.html { redirect_to @system_setup, notice: 'System setup was successfully updated.' }
-        #format.json { render :show, status: :ok, location: @system_setup }
-      else
-        #format.html { render :edit }
-        #format.json { render json: @system_setup.errors, status: :unprocessable_entity }
-      end
+    if @system_setup.update(system_setup_params)
+      redirect_To_Apiary
+      #format.html { redirect_to @system_setup, notice: 'System setup was successfully updated.' }
+      #format.json { render :show, status: :ok, location: @system_setup }
+    else
+      #format.html { render :edit }
+      #format.json { render json: @system_setup.errors, status: :unprocessable_entity }
+    end
     #end
   end
 
@@ -68,11 +78,24 @@ class SystemSetupsController < ApplicationController
   end
 
   def system_setup_params
-    params.require(:system_setup).permit(:name,
-                                         :beehive_types_attributes =>[:id, :name, :system_setup_id, :apiary_id, :_destroy],
-                                         :apiary_types_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
-                                         :apiary_forage_types_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
-                                         :beehive_group_types_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
+    params.require(:system_setup).permit(
+        :name,
+        :beehive_types_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
+        :apiary_types_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
+        :apiary_forage_types_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
+        :beehive_group_types_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
+        :plants_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
+        :diseases_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
+        :harvest_types_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
+        :food_types_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
+        :supplements_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
+        :colony_sources_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
+        :activities_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
+        :temperatures_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
+        :lengths_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
+        :weights_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
+        :currencies_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
+        :supers_attributes => [:id, :name, :system_setup_id, :apiary_id, :_destroy],
     )
   end
 
